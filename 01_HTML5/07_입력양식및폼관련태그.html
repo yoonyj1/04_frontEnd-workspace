@@ -67,5 +67,116 @@
         <input type="reset">
 
     </form>
+
+    <hr>
+
+    <h2>text와 관련된 input 태그의 타입</h2>
+
+    <form action="test.do" method="get"> <!-- 어떻게 넘어가는 지 보기 위해 get으로 짜기 -->
+        <h3>type="text"</h3>
+        <p>
+            - 한 줄 짜리 텍스트를 입력할 수 있는 텍스트 상자(기본값) <br>
+            - 생략하거나 잘못쓰면 자동으로 type="text"가 됨
+        </p>
+
+        아이디:
+        <input type="text" name="userId" placeholder="아이디 입력" maxlength="12" required> <br>
+
+        <h3>type="password"</h3>
+        <p>
+            - 비밀번호를 입력할 수 있는 텍스트 상자
+        </p>
+
+        비밀번호: 
+        <input type="password" name="userPwd" placeholder="영문, 숫자, 특수문자 8~15자" maxlength="15" required>
+        <br>
+
+        <h3>type="search|url|email|phone"</h3>
+        <p>
+            - 겉모습은 일반 텍스트 상자와 유사하지만 각각의 정보는 세분화 된 기능 제공
+        </p>
+
+        검색: 
+        <input type="search" name="keyword">
+        <br>
+
+        홈페이지:
+        <input type="url" name="homepage" value="http://">
+        <br>
+
+        이메일:
+        <input type="email" name="email">
+        <br>
+
+        전화번호:
+        <input type="phone" name="phone"> <!-- 모바일로 열면 키패드가 열림-->
+
+        <br><br>
+        <input type="submit">
+
+    </form>
+
+    <h2>textarea</h2>
+    <p>- 텍스트 상자: 여러줄 입력가능</p>
+    <form action="test.do">
+        <fieldset>
+            <legend>글 작성</legend>
+            제목: <input type="text" name="title" size="30">
+            <br>
+
+            내용: <textarea name="content" placeholder="내용을 입력해주세요" cols="35" rows="10" style="resize: none;"></textarea>
+            <br>
+            <input type="submit">
+        </fieldset>
+
+    </form>
+
+    <hr>
+
+     <h2>숫자와 관련된 input태그의 타입</h2>
+     <form action="test.do">
+        <h3>type="number"</h3>
+        <p>
+            - 숫자값만 작성가능한 텍스트 상자
+            - 스핀박스가 표시됨 (위아래 화살표 버튼)
+        </p>
+
+        수량:
+        <input type="number" name="amount" min="0" max="20" step="5" value="0">
+        <br>
+
+        <h3>type="range"</h3>
+        <p>
+            슬라이드바를 통해 숫자 지정 가능
+        </p>
+
+        점수:
+        <input type="range" name="score" min="0" max="100" step="20"> <!-- 정확한 숫자가 나오지 않아서 사용 빈도 낮음-->
+        <br>
+
+        <input type="submit">
+     </form>
+
+     <h2>날짜 및 시간과 관련된 input 태그의 타입</h2>
+     <form action="test.do">
+        <h3>type="date|month|week|time|datetime-local"</h3>
+
+        date: <input type="date" name="dateIn"> <!-- 연도와 월, 일 입력받을 수 있는 텍스트 상자 -->
+        <br><br>
+
+        month: <input type="month" name="monthIn"> <!-- 연도, 월까지만 입력받을 수 있는 텍스트 상자-->
+        <br><br>
+
+        week: <input type="week" name="weekIn"> <!-- 연도, 해당 연도의 몇번째 주인지 입력받을 수 있는 텍스트 상자 -->
+        <br><br>
+
+        time: <input type="time" name="timeIn">
+        <br><br>
+
+        <input type="submit">
+        <br><br>
+
+
+     </form>
 </body>
 </html>
