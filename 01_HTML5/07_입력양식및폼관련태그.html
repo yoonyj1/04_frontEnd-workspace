@@ -224,5 +224,81 @@
         <br><br>
         <input type="submit">
      </form>
+
+     <hr>
+     <h2>추가적인 input 태그 타입</h2>
+
+     <form action="test.do">
+        <h3>type="color"</h3>
+        <p>
+            - 색상을 선택할 수 있는 input
+        </p>
+
+        색상선택: <input type="color" name="color"> <br>
+
+        
+        <h3>type="file"</h3>
+        <p>- 첨부하고자 하는 파일을 선택할 수 있는 input</p>
+        
+        파일선택: <input type="file" name="uploadFile"><br>
+
+        <h3>type="hidden"</h3>
+        <p>- 특정값을 사용자에게 입력받지 않고, 화면에도 노출되지 않지만 넘기고자 하는 값이 있을 경우</p>
+
+        <input type="hidden" name="hiddenValue" value="zzzzzzz">
+        <br><br>
+
+        <h3>input type="submit|reset|button"</h3>
+        <input type="submit"> <!-- value="제출" (submit 타입 시 기본) -->
+        <input type="reset"> <!-- value="초기화" (reset 타입 시 기본) -->
+        <input type="button" value="일반버튼">
+        <br><br>
+
+        <h3>button [type="submit|reset|button"]</h3>
+        <button type="submit">제출</button>
+        <button type="reset">초기화</button>
+        <button type="button">일반버튼</button>
+        <button>??</button> <!-- type 생략 시 submit이 기본값 -->
+        <br><br>
+     </form>
+
+     <hr>
+
+     <h2>select태그와 option태그 </h2>
+     <p>
+        - 사용자에게 직접 키보드로 입력받는 것이 아닌 내가 제시한 여러개의 옵션(목록) 중에서 선택할 수 있게끔 <br>
+        - 제출 시 현재 선택된 (select) option의 값이 넘어감 <br>
+        - 각각의 option에 value값을 명시하지 않은 경우 content영역의 값이 넘어감 <br>
+        - value 값을 명시했을 경우 value 값이 넘어감
+     </p>
+
+     <form action="test.do">
+        국적:
+        <select name="national">
+            <!-- <option value="">선택안함</option> 선택안함을 기본값으로 하는 방법 1: 맨 위로 올리기 -->
+            <option value="KO">한국</option>
+            <option value="US">미국</option>
+            <option value="EU">영국</option>
+            <option value="RU">러시아</option>
+            <option value="" selected>선택안함</option> <!-- 방법 2: selected -->
+        </select>
+        <br><br>
+
+        <h4>HTML5에서만 새로 추가된 기능 datalist</h4>
+        <p>
+            - 사용자에게 직접 값을 키보드로 입력 받을 수 있고 목록에서 선택할 수도 있음
+        </p>
+
+        좋아하는 색상:
+        <input type="text" name="color" list="colorList">
+        <datalist id="colorList">
+            <option value="black">검정색</option>
+            <option value="white">흰색</option>
+            <option value="skyblue">하늘색</option>
+        </datalist>
+
+        <br><br>
+        <input type="submit">
+     </form>
 </body>
 </html>
