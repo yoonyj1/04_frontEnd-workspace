@@ -1,0 +1,47 @@
+/* .css 파일은 영역 전체가 style 태그로 감싸져있다고 생각하면 됨 => 스타일 정보를 바로 기입할 수 있다.*/
+h2{color: red;}
+
+/* 1. 속성선택자 --------------------------------------------------- */
+
+/* = : div요소들 중 name속성 값이 name1과 정확히 "일치"하는 요소 */
+div[name=name1] {
+    background-color: orangered;
+}
+
+/* ~= : div요소들 중 name속성 값이 name1을 "포함"하는 요소 
+    키워드로는 안되고 공백으로 구분, 한 단어를 정확히 포함해야함.
+     ex) name1 (O), na(X)
+*/
+div[name~=name1] {
+    background-color: yellow;
+}
+
+/* |= : div요소들 중 class 속성 값이 class로 "시작"하는 요소 (-로 구분)
+        ~=와 마찬가지로 한 단어를 정확히 포함해야함.
+*/
+div[class|=class] {
+    background-color: cyan;
+}
+
+/* ^= : div요소들 중 name 속성 값이 na로 "시작"하는 요소 
+        키워드로 적용 가능함
+*/
+div[name^=na] {
+    background-color: blue;
+}
+
+/* $= : div요소들 중 class속성 값이 ss로 "끝"나는 요소  */
+div[class$=ss] {
+    color: white;
+}
+
+/* *= : div요소들 중 class속성 값이 i를 "포함"하는 요소  */
+div[class*=i] {
+    background-color: yellow;
+    color: red;
+}
+
+/* 응용: class 속성 값이 div-class인 요소들 중 name속성값에 name3이 포함 되어 있는 요소 => background-color를 pink */
+.div-class[name~=name3] {
+    background-color: pink;
+}

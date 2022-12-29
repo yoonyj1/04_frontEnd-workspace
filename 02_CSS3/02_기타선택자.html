@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>기타선택자</title>
+    <link rel="stylesheet" href="resources/CSS/02.css">
+
+    <!-- 
+        외부 스타일 방식: 스타일 정보만을 따로 기술하는 .css 외부문서를 만들고
+                          link 태그를 통해 연결시켜주는 방식
+     -->
+</head>
+<body>
+    <h2>1. 속성선택자</h2>
+
+    <p>
+        선택하고자 하는 요소 내에 작성돼있는 속성을 이용해서 선택하는 방법<br>
+        선택자 뒤에 [ ]를 이용해서 속성과 속성값을 제시하면서 선택
+    </p>
+
+    <pre>
+        선택자[속성=속성값]
+        선택자[속성~=속성값] 
+        선택자[속성|=속성값] 
+        선택자[속성^=속성값] 
+        선택자[속성$=속성값]
+        선택자[속성*=속성값] {
+            스타일속성:값;
+        }
+    </pre>
+
+    <!-- div*4 -->
+    <div class="div-class" name="name1">div1</div>
+    <div class="div-class" name="name2">div2</div>
+    <div class="div-class" name="name3 name1">div3</div>
+    <div class="class-div" name="name3">div4</div>
+
+    <hr>
+
+    <h2>2. 자손선택자와 후손선택자</h2>
+    <!--
+    <div>
+        <ul>
+            <li></li>
+        </ul>
+        <p></p>
+    </div>
+     div의 자손은 ul과 p 후손은 li
+         ul의 자손은 li
+     -->
+
+     <p>
+        요소들이 중첩되어 작성 가능 <br>
+        자손: 바로 하위인 요소들을 <br>
+        후손: 하위요소들 전부
+     </p>
+
+     <pre>
+     * 자손선택자: > (부모쪽으로 열림)
+        a>b{
+            스타일속성:값;
+        } (a의 자식인 b를 선택)
+
+     * 후손선택자: 공백
+     a b {
+        스타일속성:값;
+     }   (a의 후손인 b)
+     </pre>
+</body>
+</html>
