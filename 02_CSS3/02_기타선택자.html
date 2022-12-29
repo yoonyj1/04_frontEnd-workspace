@@ -65,5 +65,78 @@
         스타일속성:값;
      }   (a의 후손인 b)
      </pre>
+
+     <div id="test1">
+            <h4>div의 자손이면서 후손입니다.</h4>
+            <h4>div의 자손이면서 후손입니다.</h4>
+
+            <ul>div의 자손이면서 후손입니다.
+                <li>ul의 자손이면서 div의 후손입니다.</li>
+                <li>ul의 자손이면서 div의 후손입니다.</li>
+            </ul>
+     </div>
+
+     <hr>
+
+     <h2>3. 동위(같은 레벨) 선택자</h2>
+     <p>
+        동위관계(같은 레벨)에 있는 뒤에 위치한 특정요소를 선택할 때 사용
+     </p>
+
+     <pre>
+     * a요소 **바로** 뒤에 있는 b요소 "하나만"을 선택
+        a+b {
+            스타일속성:값;
+        }
+     * a요소 뒤에 "모든" b요소 다 선택
+        a~b {
+            스타일속성:값;
+        }
+     </pre>
+
+     <div id="test2">div1</div>
+     <div>div2</div>
+     <div>div3</div>
+     <div>div4</div>
+     <ul>ul</ul>
+     <div>ㅎㅇ</div>
+
+     <hr>
+
+     <!-- div>h3+ul>li*3 입력하면 아래와 같이 생성됨 
+        => 에밋(emmet) 문법
+     
+     <div>
+        <h3></h3>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+     </div>
+
+     -->
+
+     <h2>4. 반응선택자</h2>
+     <p>
+        사용자의 움직임에 따라 선택되는 선택자
+     </p>
+
+     <pre>
+      * 해당 요소에 클릭이 되었을 경우 스타일 부여
+      선택자:active {
+        스타일속성:값;
+      }
+
+      * 해당 요소에 마우스가 올라가는 순간 스타일 부여
+      선택자:hover {
+        스타일속성:값;
+      }
+     </pre>
+
+     <div id="active-test" class="area">active 테스트</div>
+     <br><br>
+     <div id="hover-test" class="area">hover 테스트</div>
+
 </body>
 </html>

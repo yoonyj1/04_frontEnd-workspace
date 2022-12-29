@@ -45,3 +45,75 @@ div[class*=i] {
 .div-class[name~=name3] {
     background-color: pink;
 }
+
+
+/* 2. 자손선택자와 후손선택자 ----------------------------- */
+/* a>b: a의 요소의 자손들 중에서 b 요소만 선택 */
+
+/* #test1>* {background-color: pink;}
+id가 test1의 자손 모두를 선택 */
+
+/* id가 test1인 요소의 자손들 중 h4요소만 선택 */
+#test1>h4{
+    background-color: orangered;
+}
+
+/*
+#test1>li{
+    background-color: darkcyan;
+} 
+
+test1의 자손 중 li가 없음
+*/
+
+/* test1의 자손인 ul의 자손인 li */
+#test1>ul>li{
+    background-color: darkcyan;
+}
+
+/* a b: a요소의 후손(모든 하위요소)들 중에서 b요소만 선택 */
+#test1 li{
+    color: red;
+}
+
+/* 3. 동위선택자 -------------------------------------------- */
+#test2+div{
+    background-color: yellow;
+}
+
+/* id가 test2 "바로" 뒤에는 ul이 아닌 div가 있으므로 의도한대로 적용이 되지 않음 */
+/* 
+#test2+ul{
+    background-color: pink;
+}
+
+제대로 선택 안됨(바로 뒤에 있는 요소가 아니기 때문)
+*/
+
+/*
+#test2~div{
+    background-color: green;
+}
+*/
+
+#test2~ul{
+    background-color: deeppink;
+}
+
+/* 4. 반응선택자 ------------------------------------------------- */
+.area {
+    background-color: yellowgreen;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+#active-test:active{
+    background-color: yellow;
+    color: red;
+}
+
+#hover-test:hover{
+    background-color: maroon;
+    color: white;
+}
