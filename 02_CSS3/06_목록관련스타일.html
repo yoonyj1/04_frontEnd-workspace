@@ -2,8 +2,62 @@
 <html>
 <head>
     <title>목록 관련 스타일</title>
+    <style>
+    #ul1{
+        list-style-type: disc;
+        list-style-type: circle;
+        list-style-type: square;
+        list-style-type: none; /* 가장 많이 사용 */
+        list-style-image: url("resources/image/iconsample.PNG");
+    }
+
+    #ol1{
+        list-style-type: decimal-leading-zero;
+        list-style-type: lower-alpha;
+        list-style-type: upper-alpha;
+        list-style-type: lower-roman;
+        list-style-type: upper-roman;
+        list-style-position: inside; /* outside가 기본값 */
+    }
+    </style>
 </head>
 <body>
-    
+    <h1>목록 관련 스타일(list~)</h1>
+
+    <h3>list-style-type: 불릿기호를 변경시켜줄 때 사용</h3>
+    <h3>list-style-image: 불릿기호를 이미지로 적용할 때 사용</h3>
+    <h3>list-style-position: 불릿기호를 위치를 조정할 때 사용</h3>
+
+    <pre>
+    * 순서 없는 목록(ul)
+     선택자{
+        list-style-type: disc | circle | squaer | none;
+        list-style-image: url("적용시켜려는 이미지의 경로")
+        list-style-position: inside | outside(기본값)
+     }
+
+     * 순서 있는 목록(ol) => 타입으로 원래 바꿀 수 있지만 스타일로도 변경 가능
+     선택자{
+        list-style-type: decimal | decimal-leading-zero;
+        list-style-type: lower-alpha | upper-alpha;
+        list-style-type: lower-roman | upper-roman;
+     }
+    </pre>
+
+    <h4>순서 없는 List</h4>
+    <ul id="ul1">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>jQuery</li>
+    </ul>
+
+    <h4>순서 있는 List</h4>
+    <ol id="ol1">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>jQuery</li>
+    </ol>
 </body>
 </html>
