@@ -37,6 +37,56 @@
             background-color: red;
             /* position: fixed; */
         }
+
+        .z-test{
+            border: 1px solid black;
+            width: 150px;
+            height: 100px;
+            position: absolute; /* 내가 원하는 위치에 부여하기 위함 */
+        }
+
+        #z1{
+            background-color: yellow;
+            top: 100px;
+            left: 100px;
+            z-index: 999;
+        }
+
+        #z2{
+            background-color: green;
+            top: 50px;
+            left: 50px;
+            z-index: 1;
+        }
+
+        #z3{
+            background-color: red;
+            z-index: 0;
+        }
+
+        .vis-test{
+            width: 100px;
+            height: 100px;
+        }
+
+        .float-test{
+            border: 1px solid black;
+            width: 70px;
+            height: 30px;
+            float: left; /* 띄워서 왼쪽(오른쪽)으로 배치 display:inline과 비슷하지만 이건 띄워져있음 */
+        }
+
+        .float-test2{
+            border: 1px solid black;
+            float: left;
+            padding: 0px;
+        }
+
+        .float-li{
+            float: left;
+            padding-right: 30px;
+            list-style-type: none;
+        }
     </style>
 </head>
 <body>
@@ -52,8 +102,46 @@
     <h3>position:고정위치(fixed)</h3>
 
     <div class="positioning" id="fixed-area"></div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     
+    <hr>
+    
+    <h3>z-index: 요소들을 순서대로 위로 쌓는 속성</h3>
+
+    <div class="outer">
+        <div class="z-test" id="z1">요소1</div>
+        <div class="z-test" id="z2">요소2</div>
+        <div class="z-test" id="z3">요소3</div>
+    </div>
+
+    <!-- z-index 주면 떠있음 화면에 붙어있는 마지막 요소 아래 써짐 -->
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <hr>
+
+    <h3>visibility: 특정 요소를 보이거나 보이지 않게 하는 스타일 속성</h3>
+
+    <div class="vis-test" style="background-color: red;">첫번째 영역</div>
+    <div class="vis-test" style="background-color: gray; visibility: hidden;">두번째 영역</div>
+    <div class="vis-test" style="background-color: yellow;">세번째 영역</div>
+
+    <b>visibility:hidden은 공간은 차지하고 있지만 display:none은 공간도 사라지게함</b>
+
+    <hr>
+    
+    <h3>float</h3>
+    <p>페이지 내의 요소들을 화면으로부터 띄워서 왼쪽 또는 오른쪽으로 배치하는 속성</p>
+
+    <div class="float-test">요소1</div>
+    <div class="float-test">요소2</div>
+    <div class="float-test">요소3</div>
+    <div class="float-test">요소4</div>
+    <div class="float-test">요소5</div>
+    <br clear="both">
+    
+    <ul class="float-test2">
+        <li class="float-li">확인1</li>
+        <li class="float-li">확인2</li>
+        <li class="float-li">확인3</li>
+    </ul>
+
 </body>
 </html>
