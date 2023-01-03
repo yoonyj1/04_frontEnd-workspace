@@ -17,10 +17,24 @@
         }
 
         /* 공통적인 속성 */
-        .wrap>div{
+        .wrap>div{ /* == #header, #content, #footer */
             /* 자손만 바꾸기 */
             width: 100%;
         }
+
+        #header, #footer{
+            height: 20%;
+        }
+
+        #content{height: 60%;}
+
+        #content>div{
+            height: 100%;
+            float: left;
+        }
+
+        #content_1{width: 20%;}
+        #content_2{width: 80%;}
     </style>
 </head>
 <body>
