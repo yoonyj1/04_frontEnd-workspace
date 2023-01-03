@@ -20,6 +20,35 @@
         #div1{background-clip: border-box;}
         #div2{background-clip: padding-box;}
         #div3{background-clip: content-box;}
+
+        #test{
+            border: 1px solid black;
+            width: 70%;
+            height: 800px;        
+            
+            background-image: url("resources/image/bgsample.PNG");
+            
+            background-repeat: repeat; /* 기본값 */
+            background-repeat: repeat-x; /* 가로로 반복 */
+            background-repeat: repeat-y; /* 세로로 반복 */
+            background-repeat: no-repeat; /* 반복 X */
+
+            background-size: auto; /* 기본값 */
+            background-size: contain; /* 가로나 세로 중 하나에 그림에 맞게 맞춤 */
+            background-size: cover; /* 꽉 채움 */
+            background-size: 300px 200px;
+            background-size: 50% 50%;
+            
+            background-position: left top; /* 기본값 */
+            background-position: right top;
+            background-position: right bottom;
+            background-position: center bottom;
+            background-position: center center;
+            background-position: 50% 50%; /* == center center */
+
+            background-attachment: scroll; /* 기본값 */
+            background-attachment: fixed; /* 자리에 고정 => 스크롤 위아래로 올리면 확인 가능*/
+        }
     </style>
 </head>
 <body style="background-color: skyblue;">
@@ -44,5 +73,22 @@
     <div class="div-test" id="div1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, voluptatibus corrupti ratione cupiditate laboriosam qui nulla vel quae expedita tempora assumenda, excepturi dolorem perferendis. Consequatur optio quod nostrum ex earum.</div>
     <div class="div-test" id="div2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur accusantium fugit saepe inventore, corporis unde harum, provident numquam, quod error omnis aliquam accusamus modi assumenda iusto non. Suscipit, reprehenderit officiis.</div>
     <div class="div-test" id="div3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, odit harum. Suscipit debitis, adipisci voluptatibus, assumenda est expedita nesciunt amet veritatis molestias aliquid, blanditiis cupiditate illo soluta sed placeat quia!</div>
+
+    <hr>
+
+    <h3>배경 이미지 테스트</h3>
+    <pre>
+    선택자{
+        background-image:url("이미지 경로");
+        background-repeat|repeat-x|repeat-y|no-repeat;
+        background-size:auto|contain|cover|px px|% %;
+        background-position:좌/우/가운데 위/아래/가운데 | px px | % %;
+        background-attachment:scroll|fixed;
+    }
+    </pre>
+    
+    
+    <div id="test"></div>
+    
 </body>
 </html>
