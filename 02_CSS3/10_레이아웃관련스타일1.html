@@ -8,7 +8,33 @@
             width: 400px;
             height: 200px;
         }
+
+        /* 요소 자체의 크기는 컨텐츠, 패딩, 보더임 */
+
+        #test2{
+            width: 50%;
+            height: 150px;
+        }
         
+        .red{background-color: red;}
+        .yellow{background-color: yellow;}
+        .pink{background-color: pink}
+        .green{background-color: green;}
+        .purple{background-color: purple;}
+
+        .display-test{
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+        }
+
+        .inline{display: inline;} /* 인라인 요소로 변경되면 가로 세로 지정했던 것이 무시가 됨
+                                        => 인라인 요소는 content만큼만 차지하기 때문  
+                                  */
+
+        .inline-block{display: inline-block;}
+
+        .block{display:block}
     </style>
 </head>
 <body>
@@ -29,5 +55,43 @@
 
      <h4>가변크기(%)</h4>
      <div id="test2" class="size_test"></div>
+
+     <hr>
+
+     <h3>display: 화면 배치 방법 변경</h3>
+     <pre>
+      선택자{
+        display:inline | block | inline-block
+      }
+     </pre>
+
+     <h4>display:inline</h4>
+
+     <div class="display-test inline red">첫번째</div>
+     <div class="display-test inline yellow">두번째</div>
+     <div class="display-test inline pink">세번째</div>
+     <div class="display-test inline green">네번째</div>
+     <div class="display-test inline purple">다섯번째</div>
+     <br>
+     <b>display:inline 하게되면 width와 height 스타일 속성은 적용되지 않음</b>
+
+     <h4>display:inline-block</h4>
+
+     <div class="display-test inline-block red">1번째</div>
+     <div class="display-test inline-block yellow">2번째</div>
+     <div class="display-test inline-block pink">3번째</div>
+     <div class="display-test inline-block green">4번째</div>
+     <div class="display-test inline-block purple">5번째</div>
+     <br>
+     <b>display:inline-block: inline속성으로 변경되지만 블럭요소였을 때 지정해놓은 width와 height가 그대로 유지됨</b>
+
+     <h4>display:block</h4>
+
+     <!-- 기존에 인라인 요소인 span을 블럭요소로 바꾸기 -->
+     <span class="display-test block red"></span>
+     <span class="display-test block yellow"></span>
+     <span class="display-test block pink"></span>
+     <span class="display-test block green"></span>
+     <span class="display-test block purple"></span>
 </body>
 </html>
