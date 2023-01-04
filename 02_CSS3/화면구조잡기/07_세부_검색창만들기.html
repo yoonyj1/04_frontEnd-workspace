@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>세부_검색창만들기 - header2</title>
+    <style>
+    div, form, input{
+        border:1px solid red;
+        box-sizing: border-box;
+    }
+
+    #header2{
+        width: 600px;
+        height: 150px;
+    } /* 임시 */
+
+    #search_form{
+        width: 80%;
+        height: 20%;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0; /* 4개가 다 극단으로 가려고 해서 결국 중앙으로 배치가 됨*/
+    }
+
+    #search_form>div{
+        height: 100%;
+        float: left;
+    }
+
+    #search_text{
+        width: 80%;
+    }
+
+    #search_btn{
+        width: 20%;
+    }
+
+    #search_form input{
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    #header2{
+        position: relative;
+    }
+    </style>
+</head>
+<body>
+    <div id="header2">
+        <form action="" id="search_form">
+            <div id="search_text">
+                <input type="text" id="keyword" name="keyword">
+            </div>
+
+            <div id="search_btn">
+                <input type="submit" id="submit" value="검색">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
