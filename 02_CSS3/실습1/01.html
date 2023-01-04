@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>01</title>
+    <style>
+    div{
+        border: 3px solid white;
+        box-sizing: border-box;
+    }
+
+    #wrap{
+        width: 1000px;
+        height: 900px;
+        margin: auto;
+    }
+
+    #wrap>*{
+        width: 100%;
+    }
+
+    #header{
+        height: 20%;
+    }
+
+    #footer{
+        height:15%;
+    }
+
+    #navigator{
+        height: 5%;
+        background-color: rgb(92, 192, 92);
+    }
+    #content{
+        height: 60%;
+    }
+
+    #header>div{
+        height: 100%;
+        float: left;
+    }
+
+    #header1{
+        width: 20%;
+    }
+
+    #header2{
+        width: 60%;
+    }
+
+    #header3{
+        width: 20%;
+    }
+
+    #head1_img, #head2_img{
+        width: 100%;
+        margin: 7% 0%;
+        padding-top: 20px;
+    }
+
+    #head2_img{
+        padding-top: 30px;
+    }
+    
+    #content>div{
+        height: 100%;
+        float: left;
+    }
+
+    #content1{
+        width: 20%;
+        background-image: url("image/left_img.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    #content2{
+        width: 60%;
+    }
+
+    #content2>*{
+        width: 100%;
+        float: left;
+    }
+
+    #content2_top{
+        height: 50%;
+    }
+    
+    #content2_top>*{
+        height: 100%;
+        float: left;
+    }
+
+    #top1{
+        width: 50%;
+        background-image: url("image/main_img1.jpg");
+        background-size: 100% 90%;
+        background-repeat: no-repeat;
+        
+    }
+
+    #top2{
+        width: 50%;
+        background-image: url("image/main_img2.jpg");
+        background-size: 100% 90%;
+        background-repeat: no-repeat;
+    }
+
+    #content2_bottom{
+        height: 50%;
+    }
+
+    #content2_bottom>*{
+        height: 100%;
+        float: left;
+    }
+
+    #bottom1{
+        width: 50%;
+        background-image: url("image/main_img3.jpg");
+        background-size: 100% 90%;
+        background-repeat: no-repeat;
+    }
+    
+    #bottom2{
+        width: 50%;
+        background-image: url("image/main_img4.jpg");
+        background-size: 100% 90%;
+        background-repeat: no-repeat;
+    }
+    
+    #content3{
+        width: 20%;
+    }
+
+    #content2 p{
+        text-align: center;
+        line-height: 28;
+        
+    }
+
+    #footer{
+        background-image: url("image/footer.JPG");
+        background-repeat: no-repeat;
+        background-position-y: 200%;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div id="header1">
+                <a href="01.html"><input type="image" id="head1_img" src="image/logo.jpg"></a>
+                
+            </div>
+            <div id="header2">
+                <a href="01.html"><input type="image" id="head2_img" src="image/mainlogo.jpg"></a>
+            </div>
+            <div id="header3">
+
+            </div>
+        </div>
+        <div id="navigator">
+            
+            </ul>
+        </div>
+        <div id="content">
+            <div id="content1"></div>
+            <div id="content2">
+                <div id="content2_top">
+                    <div id="top1">
+                        <p>나무를 심는 사람들</p>
+                    </div>
+                    <div id="top2">
+                        <p>아이들에게 녹색미래를..</p>
+                    </div>
+                </div>
+                <div id="content2_bottom">
+                    <div id="bottom1">
+                        <p>설악산을 살리는 길</p>
+                    </div>
+                    <div id="bottom2">
+                        <p>사라지는 북극곰들</p>
+                    </div>
+                </div>
+            </div>
+            <div id="content3"></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>
