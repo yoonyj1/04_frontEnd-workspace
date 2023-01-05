@@ -2,8 +2,150 @@
 <html>
 <head>
     <title>02</title>
+    <style>
+    div{
+        border: 1px solid black;
+        box-sizing: border-box;
+        margin: auto;
+    }
+
+    #wrap{
+        width: 1000px;
+        height: 800px;
+    }
+    /* 구역 나누기 */
+    #wrap>div{
+        width: 100%;
+    }
+
+    /* head 구역 나누기 & 스타일 */
+    #head{
+        height: 20%;
+    }
+
+    #head>div{
+        height: 100%;
+        float: left;
+    }
+
+    #head1, #head3{
+        width: 20%;
+        text-align: center;
+        padding: 50px;
+    }
+
+    #head2{
+        width: 60%;
+        text-align: center;
+        padding: 50px;
+    }
+    
+    #search_input{
+        width: 80%;
+        height: 50%;
+    }
+    
+    #search_input>div{
+        width: 10%;
+        height: 100%;
+        float: right;
+    }
+
+    #search_input>input{
+        width: 100%;
+        height: 100%;
+    }
+
+    #search_btn input{
+        width: 100%;
+        height: 100%;
+        
+    }
+
+    #navigator{
+        height: 5%;
+    }
+
+    /* content 구역 나누기 & 스타일 */
+    #content{
+        height: 55%;
+    }
+
+    #content>div{
+        height: 100%;
+        float: left;
+    }
+
+    #content_left{
+        width: 80%;
+    }
+
+    #content_right{
+        width: 20%;
+    }
+
+    #content_left>div{
+        width: 100%;
+    }
+
+    #con_left1{
+        height: 30%;
+    }
+
+    #con_left2{
+        height: 15%;
+    }
+
+    #con_left3{
+        height: 55%;
+    }
+
+    #content_right>div{
+        width: 100%;
+    }
+
+    #con_right1{
+        height: 30%;
+    }
+
+    #con_right2{
+        height: 70%;
+    }
+
+    #footer{
+        height: 20%;
+    }
+    </style>
 </head>
 <body>
-    
+    <div id="wrap">
+        <div id="head">
+            <div id="head1">
+                <a href="#"><input type="image" src="image/logo.PNG"></a>
+            </div>
+            <div id="head2">
+                <div id="search_input">
+                    <input type="search" id="search" name="keyword">
+                    <div id="search_btn">
+                        <a href="#"><input type="image" id="search_icon" src="image/search.png"></a>
+                    </div>
+                </div>
+            </div>
+            <div id="head3"></div>
+        </div>
+        <div id="navigator"></div>
+        <div id="content">
+            <div id="content_left">
+                <div id="con_left1"></div>
+                <div id="con_left2"></div>
+                <div id="con_left3"></div>
+            </div>
+            <div id="content_right">
+                <div id="con_right1"></div>
+                <div id="con_right2"></div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
 </body>
 </html>
