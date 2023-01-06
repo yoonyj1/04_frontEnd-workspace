@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>데이터 입출력</title>
     <style>
-        .area{
+        .area {
             border: 1px solid black;
             width: 300px;
             height: 100px;
         }
     </style>
 </head>
+
 <body>
     <h1>자바스크립트에서의 데이터 입/출력</h1>
     <!-- 
@@ -23,7 +25,7 @@
     <p>
         1) [window.]alert("알람창에 출력하고픈 문구"); <br>
         2) [window.]console.log("콘솔창에 출력하고픈 문구"); <br>
-        3) document.write("화면 상에 출력할 문구"); <br>
+        3) document.write("화면 상에 출력할 문구"); <br> <!-- 덮어쓰기가 됨 -->
         4) 선택한요소.innerHTML | innerText = "요소에 출력할 문구";
     </p>
 
@@ -43,7 +45,7 @@
             a += "</tr></table>";
 
             // 변수에 넣을 내용이 많아서 이어쓰고 싶은 경우 ; 찍고 다음에 += 사용해서 이어적을 수 있음
-            
+
             document.write(a);
         }
     </script>
@@ -78,7 +80,7 @@
             // divEl.innerHTML = "<b>innerHTML로 속성값 변경함</b>"
             divEl.innerText = "<b>innerText로 속성값 변경함</b>" // 태그가 그대로 입력된 채로 변경됨
 
-            divEl.style.backgroundColor="yellow";
+            divEl.style.backgroundColor = "yellow";
             divEl.style.color = "red";
         }
     </script>
@@ -101,17 +103,86 @@
 
     <button onclick="testConfirm();">클릭</button>
 
+    <div id="area2"></div>
+
     <script>
         function testConfirm() {
-           var result = confirm("졸리면 확인, 아니면 취소");
-        //console.log(result);
+            var result = confirm("졸리면 확인, 아니면 취소");
+            //console.log(result);
+            
+            var divEl = document.getElementById("area2");
 
-        if(result) {
-            console.log("ㅂㅇ");
-        } else {
-            console.log("ㅎㅇ");
-        }
+            if (result) {
+                // console.log("ㅂㅇ");
+                divEl.innerHTML = "<h3>ㅂㅇㅂㅇ</h3>";
+            } else {
+                // console.log("ㅎㅇ");
+                divEl.innerHTML = "<h3>ㅎㅇㅎㅇ</h3>";
+            }
         }
     </script>
+
+    <br>
+
+    <h3>[window.]prompt("질문내용");</h3>
+    <p>
+        prompt 호출 시 "질문 내용"과 입력할 수 있는 "텍스트 상자"와 "확인/취소" 버튼이 보여지는 알람창 발생 <br>
+        확인 버튼 클릭 시 텍스트 상자에 입력되어 있는 값이 문자열로 반환(숫자를 입력받아도 문자열로 반환) <br>
+        취소 버튼 클릭 시 null을 반환(글자 입력하더라도 취소를 누르면 null)
+    </p>
+
+    <button onclick="testPrompt1();">클릭</button>
+    <div id="area3"></div>
+
+    <script>
+        function testPrompt1() {
+            var name = prompt("당신의 이름은 무엇입니까?");
+            var age = prompt("당신의 나이는 몇살입니까?");
+
+            var divEl = document.getElementById("area3");
+
+            
+            // console.log(name);
+            // console.log(age);
+            // console.log(11); // 콘솔에 숫자가 입력되면 파란색으로 보임
+
+            divEl.innerHTML = "<b>? " + age + "살 " + name + " ㅎㅇ" + "</b>";
+        }
+    </script>
+    <br>
+
+    <button onclick="testPrompt2();">숫자입력</button>
+
+    <ul id="area4">
+
+    </ul>
+
+    <script>
+        function testPrompt2() {
+            // num 개수만큼 반복문을 돌려서 li를 만들기
+
+            var num = prompt("숫자만 입력하세요");
+            /*
+                자바
+                for (int i = 0; i <= num; i++) {
+                    num 횟수만큼 반복
+                }
+            */
+            var str = "";
+
+            for(var i = 1; i <= num; i++) {
+                str += "<li>목록" + i + "</li>"
+            }
+
+            // console.log(str);
+
+            // var ulEl = document.getElementById("area4");
+            // ulEl.innerHTML = str;
+
+            document.getElementById("area4").innerHTML = str; // 위의 두 줄 한 줄로 줄이기
+        }
+    </script>
+
 </body>
+
 </html>
