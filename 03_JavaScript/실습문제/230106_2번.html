@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2번</title>
+</head>
+<body>
+    <h1>1. 색상 선택 후 변경 버튼을 클릭하면 색상이 변경되도록 만들어 보시오</h1>
+
+    <div id="changeColor" style="border: 1px solid black; width: 100px; height: 100px; background-color: black;"></div>
+    <input type="color" id="color" name="color">
+    <button onclick="changeColor();">변경</button>
+
+    <script>
+        function changeColor() {
+            var color = document.getElementById("color");
+
+            // console.log(color);
+
+            var div = document.getElementById("changeColor");
+
+            div.style.backgroundColor = color.value;
+        }
+    </script>
+
+    <br>
+
+    <h1>2. 버튼에 따라 크기 조절이 가능하게 만들기</h1>
+    <div id="changeSize" style="border: 1px solid black; width: 100px; height: 100px; background-color: black;"></div>
+    <button id="size50" onclick="change50();">50x50</button>
+    <button id="size100" onclick="change100();">원본(100x100)</button>
+    <button id="size200" onclick="change200();">200x200</button>
+
+    <script>
+        var div = document.getElementById("changeSize");
+        function change50() {
+            div.style.width = "50px";
+            div.style.height = "50px";
+        }
+
+        function change100() {
+            div.style.width = "100px";
+            div.style.height = "100px";
+        }
+
+        function change200() {
+            div.style.width = "200px";
+            div.style.height = "200px";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3번</title>
+</head>
+<body>
+    <h1>HTML 태그에 접근 테스트</h1>
+    구매자: <input type="text" name="name" id="name" placeholder="구매자의 이름을 입력하세요."> <br><br>
+    상품명: <input type="text" name="prodName" id="prodName" placeholder="구매 상품명을 입력하세요."> <br><br>
+    가격: <input type="text" name="price" id="price" placeholder="구매 가격을 입력하세요.">  <br><br>
+    
+    <button onclick="print();">입력값 출력하기</button> <br><br>
+
+    <div id="result" style="width: 300px; height: 100px; border: 1px solid;"></div>
+
+    <script>
+        function print(){
+            var name = document.getElementsByTagName("input");
+            var prodName = document.getElementById("prodName");
+            var price = document.getElementsByName("price");
+
+            var result = document.getElementById("result");
+
+            console.log(prodName);
+
+            
+
+            result.innerHTML = name[0].value + "<br>" + prodName.value + "<br>" + price[0].value;
+        }
+    </script>
+</body>
+</html>

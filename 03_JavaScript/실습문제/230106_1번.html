@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1번</title>
+</head>
+<body>
+    <h1>행 열 각각 입력받아 테이블 만들기</h1>
+    <button onclick="makeTable();">테이블 생성</button>
+    <div id="printTable"></div>
+    
+    <script>
+        function makeTable() {
+            var t = "";
+            var tr_input = prompt("몇 행을 추가하시겠습니까?");
+            var td_input = prompt("몇 열을 추가하시겠습니까?");
+            var table = document.getElementById("printTable");
+
+            t = "<table border='1'>";
+            for(var i = 1; i <= tr_input; i++) {
+                t += "<tr>";
+                for (var j = 1; j <= td_input; j++) {
+                    t+= "<td height=50px width=30px></td>";
+                }
+                t += "</tr>";
+            }
+            t+= "</table>";
+
+            table.innerHTML = t;
+        }
+    </script>
+
+    <hr>
+
+    <h1>행 열을 각각 입력받아서 새화면에서 출력하기</h1>
+    <button onclick="makeTable2();">테이블 새화면 생성</button>
+
+    <script>
+        function makeTable2(){
+            var t = "";
+            var tr_input = prompt("몇 행을 추가하시겠습니까?");
+            var td_input = prompt("몇 열을 추가하시겠습니까?");
+            var count = 1;
+
+            t = "<table border='1'>";
+            for(var i = 1; i <= tr_input; i++) {
+                t += "<tr>";
+                for (var j = 1; j <= td_input; j++) {
+                    t+= "<td height=50px width=30px>" + count++ +"</td>";
+                }
+                t += "</tr>";
+            }
+            t += "</table>";
+
+            document.write(t);
+        }
+    </script>
+</body>
+</html>
