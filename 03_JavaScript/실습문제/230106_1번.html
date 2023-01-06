@@ -13,7 +13,7 @@
             var t = "";
             var tr_input = prompt("몇 행을 추가하시겠습니까?");
             var td_input = prompt("몇 열을 추가하시겠습니까?");
-            var table = document.getElementById("printTable");
+            var printTable = document.getElementById("printTable");
 
             t = "<table border='1'>";
             for(var i = 1; i <= tr_input; i++) {
@@ -25,7 +25,7 @@
             }
             t+= "</table>";
 
-            table.innerHTML = t;
+            printTable.innerHTML = t;
         }
     </script>
 
