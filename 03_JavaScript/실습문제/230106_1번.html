@@ -5,11 +5,11 @@
 </head>
 <body>
     <h1>행 열 각각 입력받아 테이블 만들기</h1>
-    <button onclick="makeTable();">테이블 생성</button>
+    <button onclick="createTable();">테이블 생성</button>
     <div id="printTable"></div>
     
     <script>
-        function makeTable() {
+        function createTable() {
             var t = "";
             var tr_input = prompt("몇 행을 추가하시겠습니까?");
             var td_input = prompt("몇 열을 추가하시겠습니까?");
@@ -32,10 +32,10 @@
     <hr>
 
     <h1>행 열을 각각 입력받아서 새화면에서 출력하기</h1>
-    <button onclick="makeTable2();">테이블 새화면 생성</button>
+    <button onclick="createTable2();">테이블 새화면 생성</button>
 
     <script>
-        function makeTable2(){
+        function createTable2(){
             var t = "";
             var tr_input = prompt("몇 행을 추가하시겠습니까?");
             var td_input = prompt("몇 열을 추가하시겠습니까?");
