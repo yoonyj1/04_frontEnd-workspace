@@ -124,7 +124,7 @@
 
     <br>
 
-    <h3>[window.]prompt("질문내용");</h3>
+    <h3>2) [window.]prompt("질문내용");</h3>
     <p>
         prompt 호출 시 "질문 내용"과 입력할 수 있는 "텍스트 상자"와 "확인/취소" 버튼이 보여지는 알람창 발생 <br>
         확인 버튼 클릭 시 텍스트 상자에 입력되어 있는 값이 문자열로 반환(숫자를 입력받아도 문자열로 반환) <br>
@@ -177,9 +177,42 @@
             // console.log(str);
 
             // var ulEl = document.getElementById("area4");
+            // console.log(ulEl);
             // ulEl.innerHTML = str;
 
             document.getElementById("area4").innerHTML = str; // 위의 두 줄 한 줄로 줄이기
+        }
+    </script>
+
+    <br>
+
+    <h3>4) 선택한 input 요소.value</h3>
+    아이디: <input type="text" id="userId"> <br>
+    비밀번호: <input type="password" id="userPwd"> <br>
+
+    <button onclick="testInput();">클릭</button>
+    <br>
+
+    <input type="text" id="area5">
+
+    <script>
+        function testInput() {
+            input1 = document.getElementById("userId");
+            input2 = document.getElementById("userPwd");
+
+            console.dir(input1);
+
+            // console.log(input1.value);
+            // console.log(input2.value);
+
+            var id = input1.value;
+            var pwd = input2.value;
+
+            document.getElementById("area5").value = id + ", " + pwd;
+
+            // 클릭 버튼 누르면 각각의 인풋창이 초기화되게 만들기
+            input1.value = "";
+            input2.value = "";
         }
     </script>
 
