@@ -201,8 +201,17 @@
             console.log(user);
             console.log(testFn);
             console.log(noVal);
-            
 
+            // 화면에 출력(텍스트로 출력되기 때문에 콘솔 출력과 결과 다를 수 있음)
+            // 자료형 확인 시 사용하는 함수: typeof(변수명)
+            divEl.innerHTML = name + ", " + typeof(name) + "<br>";
+            divEl.innerHTML += age + ", " + typeof(age) + "<br>";
+            divEl.innerHTML += flag + ", " + typeof(flag) + "<br>";
+            divEl.innerHTML += hobby + ", " + typeof(hobby) + "<br>";
+            divEl.innerHTML += divEl + ", " + typeof(divEl) + "<br>";
+            divEl.innerHTML += user + ", " + typeof(user) + "<br>";
+            divEl.innerHTML += testFn + ", " + typeof(testFn) + "<br>";
+            divEl.innerHTML += noVal + ", " + typeof(noVal) + "<br>";
         }
     </script>
 </body>
