@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2번</title>
+</head>
+<body>
+    <h1>간이 계산기 만들기</h1>
+    첫번째 값: <input type="text" id="num1"> <br>
+    두번째 값: <input type="text" id="num2"> <br>
+    <input type="button" value="+" class="cal" onclick="calculator(this.value);">
+    <input type="button" value="-" class="cal" onclick="calculator(this.value);">
+    <input type="button" value="*" class="cal" onclick="calculator(this.value);">
+    <input type="button" value="/" class="cal" onclick="calculator(this.value);">
+    <input type="button" value="%" class="cal" onclick="calculator(this.value);">
+    <div id="result">계산결과: </div>
+
+    <script>
+        function calculator(val) {
+            let num1 = document.getElementById("num1").value; // 10
+            let num2 = document.getElementById("num2").value; // 5
+
+            let result = document.getElementById("result");
+
+            switch(val) {
+                case "+": 
+                    result.innerHTML +=  Number(num1) + Number(num2); break;
+                case "-": 
+                    result.innerHTML += num1 - num2; break;
+                case "*": 
+                    result.innerHTML += num1 * num2; break;
+                case "/": 
+                    result.innerHTML += num1 / num2; break;
+                case "%": 
+                    result.innerHTML += num1 % num2; break;
+            }
+
+
+        }
+    </script>
+</body>
+</html>
