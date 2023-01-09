@@ -73,6 +73,84 @@
             area2.innerHTML = "str: " + str + "<br>";
             area2.innerHTML += "bold(): " + str.bold() + "<br>"; // str을 <b></b> 태그로 감싸줌
             area2.innerHTML += "italics(): " + str.italics() + "<br>"; // str을 <i></i> 태그로 감싸줌
+            area2.innerHTML += "small(): " + str.small() + "<br>"; // <small></small> 태그로 감싸줌
+            area2.innerHTML += "sub(): " + str.sub() + "<br>"; // <sub></sub> 태그
+            area2.innerHTML += "sup(): " + str.sup() + "<br>"; // <sup></sup> 태그
+            
+            area2.innerHTML += "link(): " + str.link("http://www.naver.com") + "<br>"; // <a> 태그
+        }
+    </script>
+
+    <hr>
+
+    <h3>* 숫자(수학) 관련 메소드</h3>
+    <button onclick="mathTest();">수학 관련 메소드</button>
+    <div id="area3" class="area small"></div>
+
+    <script>
+        function mathTest() {
+            const area3 = document.querySelector("#area3");
+
+            // 자바스크립트에서 Math라는 내장객체 제공
+            area3.innerHTML = "절대값: " + Math.abs(-123) + "<br>";
+            area3.innerHTML += "랜덤값: " + Math.random() + "<br>";
+            area3.innerHTML += "반올림: " + Math.round(123.658) + "<br>"; // 가장 가까운 정수값 줌, 위치지정 불가능
+            // area3.innerHTML += "반올림: " + Math.round(123.658, 2) + "<br>"; // 가장 가까운 정수값 줌, 위치지정 불가능
+            // 함수에 존재하지 않는 args를 입력하면 그냥 무시해버림
+            area3.innerHTML += "버림: " + Math.floor(123.5678) + "<br>"; // 소수점 뒤는 다 버림
+            area3.innerHTML += "올림: " + Math.ceil(132.134) + "<br>";
+        }
+    </script>
+
+    <hr>
+
+    <h3>* 문자들과 숫자간의 산술연산 / 형변환</h3>
+    <button onclick="arithmetic();">산술연산</button>
+    <div id="area4" class="area big"></div>
+
+    <script>
+        function arithmetic() {
+            const test1 = 7 + 7; // 14
+            const test2 = 7 + "7"; // "77"
+            const test3 = "7" + 7; // "77"
+            const test4 = "7" + 7 + 7; // "77" + 7 => "777"
+            const test5 = "7" + (7 + 7); // "7" + 14 => "714"
+            
+            /*
+             자바에서는 "7" - 7 => 오류 (*, / 포함)
+             자바스크립트에서는 덧셈 외의 산술 연산 가능
+             문자열이 자동 형변환이 돼서 숫자로 변환된 뒤 숫자로 산술연산 됨
+             단, 문자열에는 숫자만 존재해야함.
+            */
+
+            const test6 = "7" - 7;
+            const test7 = "7" * 7;
+            const test8 = "7" / 7;
+
+            const area4 = document.querySelector("#area4");
+
+            area4.innerHTML = "test6: " + test6 + "<br>";
+            area4.innerHTML += "test7: " + test7 + "<br>";
+            area4.innerHTML += "test8: " + test8 + "<hr>";
+
+            // 덧셈 연산 시에는 자동 형변환 되지 않고 연이어서 한 문자열로 됨
+
+            // 강제 형변환(문자열 -> 숫자)
+
+            // 1) Number(문자열)
+            // 2) parseInt(문자열) => 문자열이 정수일 경우
+            // 3) parseFloat(문자열) => 문자열이 실수일 경우
+
+            // 2 + "3" 덧셈연산
+            const test9 = 2 + "3"; // "23"
+
+            const test10 = 2 + Number("3"); // 5
+            const test11 = 2 + parseInt("3"); // 5
+            const test12 = 2 + parseFloat("3"); // 5
+
+            area4.innerHTML += "test10: " + test10 + "<br>";
+            area4.innerHTML += "test11: " + test11 + "<br>";
+            area4.innerHTML += "test12: " + test12 + "<hr>";
         }
     </script>
 </body>
