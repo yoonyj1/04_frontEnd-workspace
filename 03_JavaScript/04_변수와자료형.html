@@ -12,6 +12,9 @@
     <h4>1) 변수의 선언 방법</h4>
     <button onclick="diffDeclare();">클릭</button>
 
+    <h4>2) 스코프(사용가능 범위)</h4>
+    <button onclick="diffScope();">클릭</button>
+
     <script>
         function diffDeclare() {
             // 1) var는 중복 선언가능(단점), 재할당 가능
@@ -40,7 +43,7 @@
             console.log("-------------------------------------------------");
 
             // 3) const는 중복 선언, 재할당 불가능 (≒상수 -> 한번 초기화 되면 변경 불가)
-            const userName = "가나다"; // const의 색이 var나 let과 다름
+            const userName = "가나다"; // const로 선언한 변수의 이름 색이 var나 let과 다름
             console.log(userName);
 
             // const userName = "나다라";
@@ -56,6 +59,150 @@
 
                  권장사항: let, const 위주로 사용. 개발 가이드에 따라 쓰면 됨
             */ 
+        }
+
+        function diffScope() {
+            // 1) var는 function[al] scope == 변수가 선언 된 함수 영역 내에서 사용 가능
+            var name = "가나다";
+            console.log(name);
+
+            // scopeTest();
+
+            if(true) {
+                var age = 20;
+            }
+
+            console.log(age); // var로 선언 된 age는 diffScope() 내에서 선언됐기떄문에 if문 밖이지만 사용가능함
+
+            for(var i = 0; i < 10; i++) {
+                
+            }
+            console.log(i); // for문 밖에 있지만 사용가능
+
+            console.log("========================");
+
+            // 2) let, const는 block scope == 변수가 선언 된 "블럭{}" 내에서만 사용 가능 (자바와 유사)
+            if(true) {
+                const hobby = "운동";
+                let gender = "M";
+            }
+
+            // console.log(hobby); // Uncaught ReferenceError: hobby is not defined 에러 발생
+                                   // if 블럭을 벗어났기 때문
+            // console.log(gender); // Uncaught ReferenceError: gender is not defined 에러 발생
+                                    // if 블럭을 벗어났기 때문
+        }
+
+        function scopeTest() {
+            console.log(name);
+        }
+    </script>
+
+    <h3>* 변수 선언 위치에 따른 전역변수 / 지역변수</h3>
+    <script>
+        // 특정 함수 영역 밖에서 선언된 변수는 전역변수로 잡힘(전역변수는 어디든 사용가능)
+        var declareVar = "var로 전역변수";
+        let declareLet = "let으로 전역변수";
+        const declareConst = "const로 전역변수";
+
+        declareNone = "그냥 전역변수"; // 잘 사용하지 않음
+
+        // window.onload = function() {해당 문서가 다 로딩된 직후에 실행시킬 코드}
+        window.onload = function() {
+            // console.log("문서 로딩 완료");
+
+            // 전역변수와 동일한 이름으로 지역변수 선언
+            var declareVar = "var로 지역변수";
+            let declareLet = "let으로 지역변수";
+            const declareConst = "const로 지역변수";
+
+            console.log(declareVar);
+            console.log(declareLet);
+            console.log(declareConst);
+
+            // 기본적으로는 지역변수명이랑 전역변수명이랑 중복될 경우에는 => 지역변수를 우선시 찾음
+            console.log(declareNone);
+
+            console.log("===================");
+            
+            // 이때 무조건 전역변수에 접근하고자 한다면 "window." 또는 "this."으로 접근하면 됨
+            
+            console.log(window.declareVar);
+            console.log(this.declareVar);
+            
+            // let, const 같은 경우는 안됨 => undefined
+            console.log(window.declareLet); // undefined
+            console.log(this.declareConst); // undefined
+            
+            console.log("===================");
+
+            declareInner = "???";
+            console.log(declareInner);
+            console.log(window.declareInner);
+            console.log(this.declareInner); 
+            // 자료형 없이 선언된 변수도 window. this. 사용 가능
+            //  => 특정 함수 내에 var, let, const를 사용하지 않고 선언된 변수는 **전역변수**로 잡힘
+
+            test();
+        }
+
+        function test() {
+            console.log(declareInner); // declareInner는 전역변수로 잡히기 때문에 다른 함수에서도 사용가능함
+        }
+    </script>
+
+    <hr>
+
+    <h3>* 자료형</h3>
+    
+    <p>
+        변수를 선언할 때 자료형을 별도로 지정하지 않음 (자료형의 개념이 없는 것은 아님) <br>
+        => 변수에 대입되는 값(리터럴)에 따라서 알아서 자료형이 결정됨 <br>
+    </p>
+
+    <h4>자바스크립트의 자료형</h4>
+    <ul>
+        <li>string(문자열)</li>
+        <li>number(숫자)</li>
+        <li>boolean(논리값)</li>
+        <li>object(객체)</li> <!-- 배열 같은 개념 -->
+        <li>function(함수)</li>
+        <li>undefined(초기화가 되지 않은 변수)</li>
+    </ul>
+
+    <button onclick="typeTest();">자료형 테스트</button>
+    <div id="area" style="border: 1px solid black;"></div>
+
+    <script>
+        function typeTest() {
+            const name = "이미주"; // 문자열 값 제시 시 홑따옴표, 쌍따옴표 둘 다 가능
+            const age = 20;
+            const flag = true;
+            const hobby = ["영화", "음악", "낮잠"]; // 배열 객체
+            const divEl = document.querySelector("#area"); // div 요소 객체
+            const user = {
+                name: "차은우",
+                age: 30,
+                id: "user01"
+            };
+            const testFn = function() {
+                alert("zzzzzzzzz");
+            }
+
+            // const noVal; // const는 상수이기 때문에 선언과 동시에 초기화를 해야함
+            let noVal;
+
+            // 콘솔에 출력
+            console.log(name);
+            console.log(age);
+            console.log(flag);
+            console.log(hobby);
+            console.log(divEl);
+            console.log(user);
+            console.log(testFn);
+            console.log(noVal);
+            
+
         }
     </script>
 </body>
