@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>배열</title>
+    <style>
+        .area{
+            border: 1px solid red;
+        }
+
+        .small{
+            height: 100px;
+        }
+
+        .big{
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>배열</h1>
+    <p>
+        변수를 선언할 때 별도의 자료형 지정이 없기 때문에 <br>
+        어떤 자료형의 값들이든 다 하나의 배열 공간에 담을 수 있음<br>
+        크기의 제약도 없음 (자바에서의 배열보다는 컬렉션과 유사)
+    </p>
+
+    <button onclick="arrayTest1();">확인하기</button>
+    <div id="area1" class="area small"></div>
+
+    <script>
+        function arrayTest1() {
+            const arr = ["문동은", '서울', 20, true, [1, 2, 3]]; // 배열 안에 배열을 추가로 담을 수 있음
+            // typeof(arr) => 배열 객체 (object)
+
+            console.log(arr);
+            console.log(arr[2]);
+            console.log(arr[4]); 
+            console.log(arr[4][2]); // [1,2,3] 안에 3을 추출하고 싶은 경우 => 2차원 배열
+
+            const area1 = document.getElementById("area1");
+
+            /*
+            for(let i = 0; i < arr.length; i++) { // for문 안에 const로 변수 선언 시 i가 변경이 되지 않기 때문에 let이나 var로 선언해야함
+                area1.innerHTML += arr[i] + "<br>";
+            }
+            */
+            
+            // 배열의 0번 인덱스에서부터 마지막 인덱스까지 순차적으로 모든 요소에 접근할 목적이라고 한다면
+            // for in 문 활용 가능
+
+            /*
+            [표현법]
+            for (let 변수 in 순차적으로 접근할 배열) {
+                실행코드
+            }
+            */
+            for (let i in arr) { // i = 0 -> i = 1 -> i = 2 ...
+                area1.innerHTML += arr[i] + "<br>";
+            }
+        }
+    </script>
+
+    <hr>
+
+    <h3>* 배열의 선언</h3>
+    <button onclick="arrayTest2();">확인하기</button>
+
+    <script>
+        function arrayTest2() {
+            // 배열 선언
+            const arr1 = new Array(); // 빈 배열 하나 생성됨
+            const arr2 = new Array(3); // 크기가 3인 빈 배열 하나 생성됨
+            const arr3 = [];
+
+            // console.log(arr1);
+            // console.log(arr2);
+            // console.log(arr3);
+
+            // 배열에 값 대입
+            arr1[0] = "바나나";
+            arr1[1] = "사과";
+            arr1[9] = "키위";
+
+            console.log(arr1);
+
+            arr2[0] = "자동차";
+            arr2[1] = "기차";
+            arr2[2] = "오토바이";
+            arr2[3] = "제트기";
+
+            console.log(arr2); // 배열의 크기를 3으로 지정했었지만 초과되는만큼 문제없이 값 대입 가능함
+
+            // 배열 선언과 동시에 초기화
+            const arr4 = new Array("문동은", "이사라", "박연진");
+            const arr5 = ["Java", "Oracle", "front"];
+
+            console.log(arr4);
+            console.log(arr5);
+        }
+    </script>
+
+    <hr>
+
+    <h3>* 배열 관련 메소드</h3>
+    <h4>1) indexOf(찾고자하는 요소): 배열에서 해당 요소가 위치해있는 인덱스 반환</h4>
+    <div id="area2" class="area small"></div>
+    <button onclick="indexOfTest();">확인하기</button>
+
+    <script>
+        function indexOfTest() {
+            const area2 = document.getElementById("area2");
+
+            const arr = ["사과", "딸기", "바나나", "복숭아", "파인애플"];
+            const fruit = prompt("찾고자 하는 과일명 입력");
+
+            const index = arr.indexOf(fruit);
+            console.log(index);
+
+            // 만약 배열에 존재하지 않는 과일명을 입력하면 -1 반환
+        }
+    </script>
+
+</body>
+</html>
