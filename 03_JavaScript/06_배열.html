@@ -117,6 +117,105 @@
             console.log(index);
 
             // 만약 배열에 존재하지 않는 과일명을 입력하면 -1 반환
+
+            // 당신이 찾는 과일 xxx는 x번째 인덱스에 있습니다.
+            // 당신이 찾는 과일 xxx는 판매하지 않습니다.
+
+            area2.innerHTML = "당신이 찾는 과일 " + fruit + "은(는) ";
+            if (index == -1) {
+                area2.innerHTML += "판매하지 않습니다.";
+            } else {
+                area2.innerHTML += index + "번째 인덱스에 있습니다."
+            }
+
+            // 자바스크립트에서 두 값이 동일한지 비교하는 연산자
+            console.log(1 == 1); // true
+            console.log(1 == "1"); // true
+            // => 동등연산자(자료형과 무관하게 실제값만 일치해도 true)
+            console.log(1 === "1"); // false => 일치연산자(자료형&실제값 둘 다 일치해야 true)
+        }
+    </script>
+
+    <hr>
+    <h4>2) 배열.concat(배열, 배열): 배열에 여러 개의 배열을 결합하고자 할 때 사용</h4>
+    <div id="area3" class="area big"></div>
+    <button onclick="concatTest();">확인하기</button>
+
+    <script>
+        function concatTest() {
+            const area3 = document.getElementById("area3");
+
+            const arr1 = ["사과", "딸기"];
+            const arr2 = ["자동차", "비행기", "오토바이"];
+
+            area3.innerHTML += "arr1: " + arr1 + "<br>";
+            area3.innerHTML += "arr2: " + arr2 + "<br>";
+
+            area3.innerHTML += "arr1 기준으로 배열 합치기: " + arr1.concat(arr2) + "<br>";
+            area3.innerHTML += "다시 arr1 출력: " + arr1 + "<br>"; // 원본 arr1에는 변동이 없음
+            // => 원본 배열에 영향을 미치지 않는 메소드
+
+            area3.innerHTML += "arr2 기준으로 배열 합치기: " + arr2.concat(arr1, [1,2,3]) + "<br>";
+        }
+    </script>
+
+    <hr>
+
+    <h4>3) 배열.reverse(): 배열에 담긴 값들을 역순으로 바꿔주는 메소드</h4>
+    <div id="area4" class="area small"></div>
+    <button onclick="reverseTest();">확인하기</button>
+
+    <script>
+        function reverseTest() {
+            const area4 = document.getElementById("area4");
+
+            const arr = [1, 2, 3, 4, 5];
+
+            area4.innerHTML += "arr: " + arr + "<br>";
+            area4.innerHTML += "reverse 결과: " + arr.reverse() + "<br>";
+            area4.innerHTML += "다시 arr: " + arr + "<br>";
+            // 원본 배열도 reverse 됨 => 원본 배열에 영향을 미치는 메소드
+        }
+    </script>
+
+    <hr>
+
+    <h4>4) 배열.sort(): 배열의 값들을 오름차순으로 정렬해주는 메소드</h4>
+    <div id="area5" class="area small"></div>
+    <button onclick="sortTest();">확인하기</button>
+
+    <script>
+        function sortTest() {
+            const area5 = document.getElementById("area5");
+
+            const arr = ["윤여진", "김여진", "나여진", "다여진", "라여진"];
+
+            area5.innerHTML += "arr: " + arr + "<br>";
+            area5.innerHTML += "sort 결과: " + arr.sort() + "<br>";
+            area5.innerHTML += "다시 arr: " + arr + "<br>";
+            // 원본 배열에 영향을 미치는 메소드
+
+            // 내림차순 하는 방법 => 오름차순 정렬 후 역순으로 뒤집기(sort() -> reverse())
+            area5.innerHTML += "내림차순 정렬: " + arr.sort().reverse() + "<br>";
+        }
+    </script>
+
+    <hr>
+    <h4>
+        5-1) 배열.push(추가할 요소): 배열의 맨 뒤에 요소를 추가시키고 배열의 크기를 반환 <br>
+        5-2) 배열.pop(): 배열의 맨 뒤요소를 제거시키고 제거된 요소 반환
+    </h4>
+
+    <div id="area6" class="area big"></div>
+    <button onclick="pushPopTest();">확인하기</button>
+
+    <script>
+        function pushPopTest() {
+            const area6 = document.querySelector("#area6");
+
+            const arr = ["서초동", "방배동", "역삼동", "삼성동", "대치동"];
+
+            area6.innerHTML += "arr: " + arr + "<br>";
         }
     </script>
 
