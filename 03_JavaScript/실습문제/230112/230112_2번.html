@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2번</title>
+</head>
+<body>
+    <h1>배열 실습 문제2</h1>
+    <fieldset>
+        <legend>보기</legend>
+        <label id="stringla1">r b</label> <br>
+        <label id="stringla2">e v o l</label> <br>
+    </fieldset>
+
+    <div id="result"></div><br>
+    <button onclick="q2();">처리</button>
+
+    <script>
+        function q2() {
+            const strla1 = document.getElementById("stringla1");
+            const strla2 = document.getElementById("stringla2");
+
+            const la1Arr = strla1.innerHTML.split(" ");
+            const la2Arr = strla2.innerHTML.split(" ");
+
+            const la1ArrRev = la1Arr.reverse();
+            const la2ArrRev = la2Arr.reverse();
+
+            laAllRev = la1ArrRev.concat(la2ArrRev);
+            console.log(laAllRev);
+
+            const result = document.getElementById("result");
+
+            for(let i in laAllRev) {
+                result.innerHTML += laAllRev[i];
+            }
+        }
+    </script>
+</body>
+</html>

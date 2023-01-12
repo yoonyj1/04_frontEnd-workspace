@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3번</title>
+</head>
+<body>
+    <h1>배열 실습 문제3</h1>
+    <fieldset>
+        <legend>입력</legend>
+        <input type="text" id="inputKeyword">
+        <button onclick="inputKeyword();">입력</button>
+    </fieldset>
+
+    <div id="result"></div><br>
+    <button onclick="outputResult();">출력</button>
+
+    <script>
+        function inputKeyword() {
+            const keyword = document.getElementById("inputKeyword").value;
+
+            const arr = [];
+
+            arr.push(keyword);
+
+            outputResult(arr);
+        }
+
+        function outputResult(arr) {
+            const result = document.getElementById("result");
+
+            result.innerHTML = arr;
+        }
+    </script>
+
+</body>
+</html>

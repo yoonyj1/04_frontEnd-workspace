@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>4번</title>
+</head>
+<body>
+    <h1>배열 실습 문제4</h1>
+    <fieldset>
+        <legend>보기</legend>
+        <p id="food">피자 치킨 당근 햄버거 떡볶이</p>
+    </fieldset>
+    <input type="text" id="delete" placeholder="삭제할 음식이름을 입력하세요">
+    <input type="text" id="add" placeholder="추가할 음식이름을 입력하세요">
+
+    <div id="result"></div>
+    <button onclick="printResult();">처리 및 출력</button>
+
+    <script>
+        function printResult() {
+            const food = document.getElementById("food");
+            const del = document.getElementById("delete").value;
+            const add = document.getElementById("add").value;
+         
+
+            foodArr = food.innerHTML.split(" ");
+
+            foodArr.splice(foodArr.indexOf(del), 1);
+            foodArr.push(add);
+
+            document.getElementById("result").innerHTML = foodArr;
+
+            
+         
+
+            
+        }
+    </script>
+</body>
+</html>
