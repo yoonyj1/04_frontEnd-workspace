@@ -207,10 +207,80 @@
                 name:document.getElementById("name").value,
                 kor:Number(document.getElementById("kor").value),
                 math:Number(document.getElementById("math").value),
-                eng:Number(document.getElementById("eng").value)
+                eng:Number(document.getElementById("eng").value),
+                toString:function(){
+                    // return "ㅎㅇ";
+                    return this.name + " " + this.kor + " " + this.math + " " + this.eng;
+                },
+                getSum:function(){
+                    return this.kor + this.math + this.eng;
+                },
+                getAverage:function(){
+                    return this.getSum() / 3;
+                }
             };
 
             console.log(student);
+
+            const area5 = document.getElementById("area5");
+
+            area5.innerHTML += "student: " + student/*.toString()*/ + "<br>";
+
+            // "속성명" in 객체명: 객체에 해당 속성이 존재할 경우 true, 아니면 false 반환
+            area5.innerHTML += "name 속성이 있는지: " + ("name" in student) + "<br>";
+            area5.innerHTML += "age 속성이 있는지: " + ("age" in student) + "<br>";
+
+            with(student){
+                area5.innerHTML += "학생이름: " + name + "<br>";
+                area5.innerHTML += "국어점수: " + kor + "<br>";
+                area5.innerHTML += "수학점수: " + math + "<br>";
+                area5.innerHTML += "영어점수: " + eng + "<br>";
+                area5.innerHTML += "총점: " + getSum() + "<br>";
+                area5.innerHTML += "평균: " + getAverage() + "<br>";
+            }
+        }
+    </script>
+
+    <hr>
+
+    <h3>* 객체의 속성 추가 및 제거</h3>
+
+    <button onclick="test6();">실행하기</button>
+    <div id="area6" class="area small"></div>
+
+    <script>
+        function test6() {
+            const student = {}; // 빈 객체 생성
+
+            // 객체에 속성을 추가
+            student.name = "문동은"; // 객체의 속성을 .으로 생성 및 접근해서 값 대입
+            student.hobby = ["게임", "음악감상"];
+            student.dream = "바둑왕";
+            student.age = 20;
+
+            student.dream = "바둑선생님"; // 중복된 이름 속성이 존재 불가, 마지막이 반영됨
+
+            // 메소드 속성 추가
+            student.toString = function(){
+                const str = "name: " + this.name + "<br>"
+                            + "hobby: " + this.hobby + "<br>"
+                            + "dream: " + this.dream + "<br>"
+                            + "age: " + this.age + "<br>";
+
+                return str;
+            }
+
+            console.log(student);
+
+            const area6 = document.getElementById("area6");
+
+            area6.innerHTML += student + "<hr>";
+
+            // 객체의 속성 제거
+            delete(student.hobby);
+
+            area6.innerHTML += student + "<hr>";
+
         }
     </script>
 </body>
