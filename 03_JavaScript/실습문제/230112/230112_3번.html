@@ -15,18 +15,17 @@
     <button onclick="outputResult();">출력</button>
 
     <script>
+        const arr = [];
+
         function inputKeyword() {
             const keyword = document.getElementById("inputKeyword").value;
 
-            const arr = [];
-
             arr.push(keyword);
-
-            outputResult(arr);
         }
 
-        function outputResult(arr) {
+        function outputResult() {
             const result = document.getElementById("result");
+            console.log(arr);
 
             result.innerHTML = arr;
         }
