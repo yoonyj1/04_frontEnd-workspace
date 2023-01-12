@@ -163,5 +163,25 @@
             area5.innerHTML = "랜덤값: " + ran() + "<br>";
         }
     </script>
+
+    <br>
+
+    <h3>* 익명함수를 리턴</h3>
+
+    이름: <input type="text" id="userName">
+    <button onclick="test7()();">실행확인</button> 
+    <!-- return이 함수라면 onclick에 괄호 추가 -->
+
+    <script>
+        function test7() {
+            let inputEl = document.getElementById("userName");
+            
+            // console.log(inputEl.value);
+
+            return function(){
+                alert(inputEl.value); // 여기까지만 하면 alert 함수 실행이 되지않음
+            };
+        }
+    </script>
 </body>
 </html>
