@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1번 풀이</title>
+</head>
+<body>
+    <h1>배열 실습 문제1</h1>
+    <fieldset>
+        <legend>보기</legend>
+        <label id="la1">사과,바나나,당근</label><br>
+        <label id="la2">김밥,치즈,떡볶이,햄버거</label><br>
+        <label id="la3">환타,사이다,콜라</label><br>
+        <label id="la4">고양이,강아지</label><br>
+    </fieldset>
+
+    <input type="text" id="findInput" placeholder="찾을 문자열을 입력하세요."><br>
+    <button onclick="test1();">전송 및 처리</button>
+
+    <script>
+        function test1() {
+            let str = ""; // 미리 변수 초기화
+
+            for(let i = 1; i <= 4; i++) {
+                str += document.getElementById("la" + i).innerHTML + ","; // for문을 돌려 str에 대입
+                // str += ",";  강사님 방식
+            }
+
+            // console.log(str);
+
+            const foods = str.split(",");
+            
+            foods.pop(); // 마지막 인덱스 제거를 위해서 사용
+
+            // console.log(foods);
+
+            const findInput = document.getElementById("findInput"); // value
+            let index = foods.indexOf(findInput.value); // 요소 있으면 index 반환, 없으면 -1 반환
+
+            if (index == -1) {
+                alert("존재하지 않습니다.");
+            } else {
+                alert(findInput.value + "는 배열 index " + index + "번째에 존재합니다.");
+            }
+        }
+    </script>
+</body>
+</html>

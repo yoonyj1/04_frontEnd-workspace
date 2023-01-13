@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2번 풀이</title>
+    <style>
+        div {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>배열 실습 문제2</h1>
+    <fieldset>
+        <legend>보기</legend>
+        <label id="stringla1">r b</label><br>
+        <label id="stringla2">e v o l</label><br>
+    </fieldset>
+    <br>
+    <div id="answer">이 부분에 정답이 출력될 수 있도록 하세요.</div>
+    <br>
+    <button onclick="test();">처리</button>
+
+    <script>
+        function test() {
+            let str = "";
+
+            str = document.getElementById("stringla1").innerHTML;
+            let arr1 = str.split(" ");
+            arr1.reverse();
+            // console.log(arr1);
+
+            str = document.getElementById("stringla2").innerHTML;
+            let arr2 = str.split(" ");
+            arr2.reverse();
+            // console.log(arr2);
+
+            const answer = document.getElementById("answer");
+
+            answer.innerHTML = "";
+            for(let i in arr1){
+                answer.innerHTML += arr1[i]; 
+            }
+            
+            for(let i in arr2){
+                answer.innerHTML += arr2[i]; 
+            }
+        }
+    </script>
+</body>
+</html>
