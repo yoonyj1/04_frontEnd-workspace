@@ -21,9 +21,11 @@
             const keyword = document.getElementById("inputKeyword").value;
 
             arr.push(keyword);
+
+            outputResult(arr);
         }
 
-        function outputResult() {
+        function outputResult(arr) {
             const result = document.getElementById("result");
             console.log(arr);
 

@@ -27,10 +27,10 @@
             const la1Arr = strla1.innerHTML.split(" ");
             const la2Arr = strla2.innerHTML.split(" ");
 
-            const la1ArrRev = la1Arr.reverse();
-            const la2ArrRev = la2Arr.reverse();
+            la1Arr.reverse();
+            la2Arr.reverse();
 
-            laAllRev = la1ArrRev.concat(la2ArrRev);
+            const laAllRev = la1Arr.concat(la2Arr);
             console.log(laAllRev);
 
             const result = document.getElementById("result");
