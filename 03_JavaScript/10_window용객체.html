@@ -140,7 +140,7 @@
     <a href="http://www.naver.com">네이버로 이동</a>
     <br>
 
-    <!-- <button href="http://www.naver.com">네이버로 이동</button> -->
+    <!-- <button href="http://www.naver.com">네이버로 이동</button> => 작동 안함 -->
     <button onclick="location.href='http://www.naver.com';">네이버로 이동</button>
 
     <br>
@@ -168,5 +168,87 @@
 
     <h3>history 객체</h3>
     <button onclick="console.log(history);">history 객체 확인</button>
+
+    <hr>
+
+    <h1>DOM(Document Object Model)</h1>
+
+    <p>
+        HTML에 있는 각각의 요소들은 노드(Node)라고 함 <br>
+        > 요소 노드(Element Node): 태그 그 자체만을 의미 <br>
+        > 텍스트 노드(Text Node): 태그 내에 기록되는 내용 <br><br>
+
+        텍스트 노드 존재하는 요소(시작태그와 종료태그가 한 쌍으로 이루어져 있음): div, h, li, p, a... <br>
+        텍스트 노드 존재하지 않는 요소(시작태그로만 이루어져 있음): input, img...
+    </p>
+
+    <h3>* 노드(요소) 생성과 관련된 메소드</h3>
+
+    <h4>- 텍스트 노드가 존재하는 노드 생성(시작태그 + 종료태그)</h4>
+
+    <button onclick="test4();">요소생성</button>
+    <div id="area2"></div>
+
+    <script>
+        function test4() {
+            // <h3>안녕하세요</h3>
+
+            // 동적으로 요소를 만드는 방법1. "문자열"로 만드는 방법
+            // document.getElementById("area2").innerHTML = "<h3>안녕하세요</h3>";
+
+            // 동적으로 요소를 만드는 방법2. document에서 제공하는 메소드를 통해 "요소객체"로 만드는 방법
+            // 요소노드 (Element Node) 객체 생성: document.createElement("태그");
+            let elementNode = document.createElement("h3"); // <h3></h3>
+
+            // 텍스트 노드(Text Node) 객체 생성: document.createTextNode("문구");
+            let textNode = document.createTextNode("안녕하세요"); // 안녕하세요
+            
+            // 두개의 노드 결합 (즉, 요소 노드 하위로 텍스트 노드를 추가)
+            elementNode.appendChild(textNode); // <h3>안녕하세요</h3>
+
+            // console.log(elementNode);
+
+            // document.getElementById("area2").innerHTML = elementNode; // => 문자열이 안돼서 안됨
+            document.getElementById("area2").appendChild(elementNode);
+        }
+    </script>
+
+    <br>
+
+    <h4>- 텍스트 노드가 존재하지 않는 노드 생성(시작태그만 존재)</h4>
+
+    <button onclick="test5();">요소 생성</button>
+    <div id="area3"></div>
+
+    <script>
+        function test5() {
+            // <img src="" width="" height="">
+            let img = document.createElement("img"); // <img>
+
+            // 속성 추가
+            img.src = "https://www.iei.or.kr/resources/images/main/main_renewal/top_logo.jpg";
+            img.width = "100";
+            img.height = "30";
+
+            console.log(img);
+
+            document.getElementById("area3").appendChild(img);
+        }
+    </script>
+
+    <br>
+
+    <h3>* 노드(요소) 삭제와 관련된 메소드</h3>
+
+    <button onclick="test6();">요소 삭제</button>
+
+    <script>
+        function test6() {
+            // 지우고자 하는 요소객체.remove();
+            // document.getElementById("area3").remove(); // div가 통째로 지워짐
+
+            document.getElementById("area3").firstChild.remove(); // 첫번째 자손 지우기
+        }
+    </script>
 </body>
 </html>
