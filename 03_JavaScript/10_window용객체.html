@@ -59,17 +59,114 @@
     <br>
 
     <h3>window 객체의 timer 관련 메소드</h3>
-    <h4>[window.]setTimeout(함수, 일정시간ms);</h4> <!-- 일정 시간 후에 함수를 딱 한번 실행해줌 -->
+    <h4>- [window.]setTimeout(함수, 일정시간ms);</h4> <!-- 일정 시간 후에 함수를 딱 한번 실행해줌 -->
 
     <button onclick="test2();">실행확인</button>
 
     <script>
         function test2() {
-            const myWIndow = window.open();
+            const myWindow = window.open();
 
-            myWIndow.alert("ㅋㅋㅋㅋ");
-            myWIndow.close(); // 팝업닫기
+            // myWIndow.alert("ㅋㅋㅋㅋ");
+            // myWIndow.close(); // 팝업닫기
+
+            myWindow.alert("3초 후에 이 페이지는 종료됩니다.");
+            
+            // 1초 => 1000ms
+            setTimeout(function(){
+                myWindow.close();
+            }, 3000);
+            // setTimeout: 내가 제시한 일정 시간 후에 해당 함수 "단 한번"만 실행됨
         }
     </script>
+
+    <br>
+
+    <h4>- [window.]setInterval(함수, 일정시간);</h4>
+    
+    <button onclick="test3();">실행확인</button>
+    <div id="area1" class="area"></div>
+
+    <script>
+        function test3() {
+            const area1 = document.getElementById("area1");
+            // 1초마다 카운트값 1씩 증가 => 스탑워치 같은 느낌
+            
+            // let count = 1;
+
+            setInterval(function(){
+                // area1.innerHTML = count++;
+
+                // 시계 만들기
+                const now = new Date(); // 현재 날짜 및 시간
+
+                let hour = now.getHours(); // 시
+                let min = now.getMinutes(); // 분
+                let sec = now.getSeconds(); // 초
+
+                if (hour < 10) {
+                    // 한 자리 수 일 경우
+                    hour = "0" + hour;
+                }
+
+                if (min < 10) {
+                    // 한 자리 수 일 경우
+                    min = "0" + min;
+                }
+
+                if (sec < 10) {
+                    // 한 자리 수 일 경우
+                    sec = "0" + sec;
+                }
+
+                area1.innerHTML = hour + ":" + min + ":" + sec;
+            }, 1000);
+
+            // setInterval: 내가 지정한 시간 간격마다 "매번" 함수 실행
+        }
+    </script>
+    
+    <hr>
+
+    <h1>* BOM(Browser Object Model)</h1>
+
+    <h3>location 객체</h3> <!-- 제일 중요 -->
+    <p>브라우저의 주소창과 관련된 객체</p>
+
+    <button onclick="console.log(location);">실행확인</button>
+    <br><br>
+
+    <!-- a 태그는 애초에 클릭 시 요청할 url 작성해둘 수 있는 href 속성 제공 -->
+    <a href="http://www.naver.com">네이버로 이동</a>
+    <br>
+
+    <!-- <button href="http://www.naver.com">네이버로 이동</button> -->
+    <button onclick="location.href='http://www.naver.com';">네이버로 이동</button>
+
+    <br>
+
+    <div onclick="location.href='http://www.naver.com'">네이버로 이동</div>
+
+    <br><br>
+
+    <!-- 사용빈도 ↓ -->
+    <button onclick="location.assign('http://www.google.com');">구글로 이동</button> <br> <!-- 뒤로가기 가능 -->
+    <button onclick="location.replace('http://www.google.com');">구글로 이동</button> <br><br> <!-- 뒤로가기 x -->
+
+    <!-- 새로고침 -->
+    <button onclick="location.href=location.href">새로고침</button> <br>
+    <button onclick="location.reload();">새로고침</button> <!-- 스크롤이 마지막 상태로 고정 -->
+    <!-- reload는 현재 위치에서 새로고침 가능 -->
+
+    <br><br>
+
+    <h3>screen 객체</h3>
+    <button onclick="console.log(screen);">screen 객체 확인</button>
+
+    <h3>navigator 객체</h3>
+    <button onclick="console.log(navigator);">navigator 객체 확인</button>
+
+    <h3>history 객체</h3>
+    <button onclick="console.log(history);">history 객체 확인</button>
 </body>
 </html>
