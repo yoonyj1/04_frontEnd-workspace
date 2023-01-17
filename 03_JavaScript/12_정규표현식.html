@@ -124,6 +124,92 @@
             regExp = /^j.+x$/;
             area2.innerHTML += "/^j.+x$/: " + regExp.test(str) + "<br>";
             area2.innerHTML += "/^j.+x$/: " + str.replace(regExp, "(***)") + "<hr>";
+
+            // 시작부터 끝까지 오로지 숫자로만 이뤄져야 하는 경우
+            // 개수는 상관없음. 단, 적어도 한글자 이상
+            regExp = /^[0-9]+$/;
+            area2.innerHTML += "/^[0-9]+$/: " + regExp.test("135846") + "<br>";
+            area2.innerHTML += "/^[0-9]+$/: " + regExp.test("1r!5846") + "<hr>";
+            
+            // 시작부터 끝까지 오로지 영문자(소문자, 대문자)로만 이뤄져야됨
+            // 개수는 상관없음. 단, 적어도 한글자 이상
+            regExp = /^[a-zA-Z]+$/;
+            area2.innerHTML += "^[a-zA-Z]+$: " + regExp.test("JavaScript") + "<br>";
+            area2.innerHTML += "^[a-zA-Z]+$: " + regExp.test("JavaSc214ri!pt") + "<hr>";
+            
+            // 시작부터 끝까지 오로지 한글(자음만, 모음만, 결합 => ㅎ, ㅏ 핳)로만 이뤄져야됨
+            // 개수는 상관없음. 단, 적어도 한글자 이상
+            regExp = /^[ㄱ-ㅎㅏ-ㅣ가-힣]+$/;
+            area2.innerHTML += "/^[ㄱ-ㅎㅏ-ㅣ가-힣]+$/: " + regExp.test("안녕하세욬ㅋㅋㅋㅋㅎㅓㅓㅓㅓㅓ") + "<br>";
+            area2.innerHTML += "/^[ㄱ-ㅎㅏ-ㅣ가-힣]+$/: " + regExp.test("안녕하세욬zzzzzzㅎㅓㅓㅓㅓㅓ") + "<br>";
+
+            // 이름 정규표현식 2글자 이상 결합
+            regExp = /^[가-힣]{2,}$/;
+            const userName = prompt("이름 입력");
+            if(regExp.test(userName)){
+                alert("ㅎㅇ ㅎㅇ");
+            } else {
+                alert("유효한 형식의 이름을 입력하세요");
+            }
+        }
+    </script>
+
+    <hr>
+
+    <h3>* 플래그 문자</h3>
+    <p>
+        i: 대소문자를 가리지 않고 비교를 수행 <br>
+        g: 전역으로 비교를 수행 <br>
+        m: 여러줄 비교를 수행 <br>
+    </p>
+
+    <button onclick="test3();">실행확인</button>
+
+    <script>
+        function test3() {
+            // 1. 영문자(대소문자) 또는 숫자로만 이뤄져야함
+            // 단, 첫글자는 반드시 영문자로
+            // 한 글자 이상
+
+            /*
+            // let regExp = /^[a-zA-z][a-zA-Z0-9]+$/;
+            let regExp = /^[a-z][a-z0-9]+$/i;
+
+            const value = prompt("아무거나 입력하세요");
+
+            if(regExp.test(value)){
+                alert("제대로 입력했습니다.");
+            } else{
+                alert("유효한 형식이 아닙니다.");
+            }
+            */
+
+            /*
+            const str = "JavaScript jQuery Ajax";
+            let regExp = /a/;
+
+            console.log("/a/: " + str.replace(regExp, "(***)"));
+
+            // 모든 a를 바꾸고 싶은경우 -> 전역으로 다 찾아서 변경
+            regExp = /a/g;
+            console.log("/a/g: " + str.replace(regExp, "(***)"));
+
+            // 대문자까지 다 바꾸기
+            regExp = /a/gi;
+            console.log("/a/gi: " + str.replace(regExp, "(***)"));
+            */
+
+            const str = "JavaScript\nJQuery\nAjax";
+            console.log(str);
+
+            let regExp = /^J/;
+            console.log(str.replace(regExp, "(***)"));
+
+            regExp = /^J/g;
+            console.log(str.replace(regExp, "(***)")); // 소용x
+
+            regExp = /^J/gm;
+            console.log(str.replace(regExp, "(***)"));
         }
     </script>
 </body>
