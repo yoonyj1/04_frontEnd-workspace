@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>정규표현식 실습문제</title>
+    <style>
+        div{
+            color:rgb(180, 180, 180);
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h1><정규표현식을 활용한 회원가입 폼></h1>
+    <fieldset>
+        <form action="test.do">
+            * 아이디: <input type="text" name="userId" id="userId"><br>
+            <div>첫글자는 반드시 영문자로, 그리고 영문자, 숫자 포함하여 총 4~12자로 입력하시오.</div><br>
+
+            * 비밀번호: <input type="password" name="userPwd" id="userPwd1"> <br>
+            <div>영문자 숫자, 특수문자 포함하여 총 8자~15자로 입력하시오.</div><br>
+
+            * 비밀번호 확인: <input type="password" name="userPwd2" id="userPwd2"> <br>
+            <div>위의 비밀번호와 일치하게 입력하시오.</div><br>
+
+            * 이름: <input type="text" name="userName" id="userName">
+            <div>한글로만 이루어져야되며 2글자 이상으로 입력하시오.</div><br>
+
+            * 이메일: <input type="email" name="userEmail" id="userEmail">
+            <div>이메일 형식에 맞춰서 입력하시오.</div><br>
+
+            * 취미: <input type="text" name="hobby" id="hobby" list="hobbyList" placeholder="축구, 농구, 야구, 독서 등"><br><br>
+                    <datalist id="hobbyList">
+                        <option value="soccer">축구</option>
+                        <option value="basketball">농구</option>
+                        <option value="baseball">야구</option>
+                        <option value="read">독서</option>
+                    </datalist>
+
+            * 거주지: <select name="address" id="address">
+                <option value="seoul">서울</option>
+                <option value="incheon">인천</option>
+                <option value="busan">부산</option>
+            </select>
+            <br><br>
+
+            <input type="submit" value="회원가입" onclick="return userSignUp();"> <button>취소</button>
+
+        </form>  
+    </fieldset>
+
+    <script>
+        function userSignUp() {
+            const userId = document.getElementById("userId").value;
+            const userPwd1 = document.getElementById("userPwd1").value;
+            const userPwd2 = document.getElementById("userPwd2").value;
+            const userName = document.getElementById("userName").value;
+            const userEmail = document.getElementById("userEmail").value;
+            const hobby = document.getElementById("hobby").value;
+    
+            const idRegExp = /^[a-z0-9]{4,12}$/i;
+            const pwdRegExp = /^[a-z0-9!@#$%^&*()_-/*+.`~]{8,15}$/i;
+
+            if(userPwd1 != userPwd2) {
+                alert("비밀번호가 일치하지 않습니다.");
+                return false;
+            }
+    
+            const nameRegExp = /^[가-힣]{2,}$/;
+            const emailRegExp = /^\w{2,}@\w{2,}[.]\w{2,}$/;
+    
+            if(!(idRegExp.test(userId))){
+                alert("아이디 형식에 맞지 않습니다.");
+                return false;
+            }
+    
+            if(!(pwdRegExp.test(userPwd1))){
+                alert("비밀번호 형식에 맞지 않습니다.");
+                return false;
+            }
+    
+            if(!(nameRegExp.test(userName))){
+                alert("이름 형식에 맞지 않습니다.");
+                return false;
+            }
+    
+            if(!(emailRegExp.test(userEmail))){
+                alert("이메일 형식에 맞지 않습니다.");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
