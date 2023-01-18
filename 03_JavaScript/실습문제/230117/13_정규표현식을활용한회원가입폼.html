@@ -12,20 +12,20 @@
 <body>
     <h1><정규표현식을 활용한 회원가입 폼></h1>
     <fieldset>
-        <form action="test.do">
-            * 아이디: <input type="text" name="userId" id="userId"><br>
+        <form action="insert.me" method="get">
+            * 아이디: <input type="text" name="userId" id="userId" required><br>
             <div>첫글자는 반드시 영문자로, 그리고 영문자, 숫자 포함하여 총 4~12자로 입력하시오.</div><br>
 
-            * 비밀번호: <input type="password" name="userPwd" id="userPwd1"> <br>
+            * 비밀번호: <input type="password" name="userPwd" id="userPwd1" required> <br>
             <div>영문자 숫자, 특수문자 포함하여 총 8자~15자로 입력하시오.</div><br>
 
-            * 비밀번호 확인: <input type="password" name="userPwd2" id="userPwd2"> <br>
+            * 비밀번호 확인: <input type="password" name="userPwd2" id="userPwd2" required> <br>
             <div>위의 비밀번호와 일치하게 입력하시오.</div><br>
 
-            * 이름: <input type="text" name="userName" id="userName">
+            * 이름: <input type="text" name="userName" id="userName" required>
             <div>한글로만 이루어져야되며 2글자 이상으로 입력하시오.</div><br>
 
-            * 이메일: <input type="email" name="userEmail" id="userEmail">
+            * 이메일: <input type="email" name="userEmail" id="userEmail" required>
             <div>이메일 형식에 맞춰서 입력하시오.</div><br>
 
             * 취미: <input type="text" name="hobby" id="hobby" list="hobbyList" placeholder="축구, 농구, 야구, 독서 등"><br><br>
@@ -37,19 +37,19 @@
                     </datalist>
 
             * 거주지: <select name="address" id="address">
-                <option value="seoul">서울</option>
+                <option value="seoul" selected>서울</option>
                 <option value="incheon">인천</option>
                 <option value="busan">부산</option>
             </select>
             <br><br>
 
-            <input type="submit" value="회원가입" onclick="return userSignUp();"> <button>취소</button>
+            <input type="submit" value="회원가입" onclick="return validate();"> <input type="reset" value="취소"></input>
 
         </form>  
     </fieldset>
 
     <script>
-        function userSignUp() {
+        function validate() {
             const userId = document.getElementById("userId").value;
             const userPwd1 = document.getElementById("userPwd1").value;
             const userPwd2 = document.getElementById("userPwd2").value;
