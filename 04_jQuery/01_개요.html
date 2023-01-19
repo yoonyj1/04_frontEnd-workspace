@@ -107,13 +107,13 @@
 
             // h3 요소들 선택해서 배경색을 노란색으로 변경
             // 1) 순수 자바스크립트 방식
-            /*
+            
             const h3Arr = document.getElementsByTagName("h3"); // [h3요소객체, h3요소객체, h3요소객체...]
             // h3Arr[1].style.backgroundColor = "yellow";
-            for(let i in h3Arr){
+            for(let i = 0; i < h3Arr.length; i++){
                 h3Arr[i].style.backgroundColor = "yellow";
             }
-            */
+            
 
             // jQuery 방식
             $("h3").css("backgroundColor", "yellow");
