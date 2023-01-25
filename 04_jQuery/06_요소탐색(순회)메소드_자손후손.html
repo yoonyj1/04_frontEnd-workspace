@@ -46,23 +46,25 @@
     </p>
 
     <script>
-        // 앞으로 부여할 스타일 객체
-        const style1 = {color:"red", border:"2px solid red"};
-        const style2 = {color:"blue", border:"2px solid blue"};
-        const style3 = {color:"green", border:"2px solid green"};
-        const style4 = {color:"orange", border:"2px solid orange"};
-        const style5 = {color:"purple", border:"2px solid purple"};
-
-        // children()
-        $(".wrap").children().css(style1);
-        $(".wrap").children().children().css(style2);
-
-        // children("선택자")
-        $(".wrap").children().children("ul").css(style3);
-
-        // find("선택자")
-        $(".wrap").find("li").css(style4);
-        $(".wrap").find("span").css(style5);
+        $(function(){
+            // 앞으로 부여할 스타일 객체
+            const style1 = {color:"red", border:"2px solid red"};
+            const style2 = {color:"blue", border:"2px solid blue"};
+            const style3 = {color:"green", border:"2px solid green"};
+            const style4 = {color:"orange", border:"2px solid orange"};
+            const style5 = {color:"purple", border:"2px solid purple"};
+    
+            // children()
+            $(".wrap").children().css(style1);
+            $(".wrap").children().children().css(style2);
+    
+            // children("선택자")
+            $(".wrap").children().children("ul").css(style3);
+    
+            // find("선택자")
+            $(".wrap").find("li").css(style4);
+            $(".wrap").find("span").css(style5);
+        })
     </script>
 </body>
 </html>
