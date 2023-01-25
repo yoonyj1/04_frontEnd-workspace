@@ -24,20 +24,53 @@
     </div>
 
     <p>
-        <h4>- $("선택자).siblings()</h4>
+        <h4>- $("선택자").siblings()</h4>
         선택된 요소와 같은 레벨에 있는 모든 요소들 선택
 
-        <h4>- $("선택자).siblings("선택자")</h4>
+        <h4>- $("선택자").siblings("선택자")</h4>
         선택된 요소와 같은 레벨에 있는 모든 요소들 중 제시한 값과 일치하는 요소들만 선택
 
-        <h4>- $("선택자).next()</h4>
-        선택된 요소와 같은 레벨 중 바로 다음 요소 하나만을 선택
+        <h4>- $("선택자").next|prev()</h4>
+        선택된 요소와 같은 레벨 중 바로 다음|이전 요소 하나만을 선택
 
-        <h4>- $("선택자).nextAll()</h4>
-        선택된 요소의 같은 레벨 중 다음 요소들 다 선택
+        <h4>- $("선택자").nextAll|prevAll()</h4>
+        선택된 요소의 같은 레벨 중 다음|이전 요소들 다 선택
 
-        <h4>- $("선택자).nextUntil("선택자")</h4>
-        선택된 요소의 같은 레벨의 다음 요소들 중 제시한 값과 일치하는 요소까지마 선택
+        <h4>- $("선택자").nextUntil|prevUntil("선택자")</h4>
+        선택된 요소의 같은 레벨의 다음|이전 요소들 중 제시한 값과 일치하는 요소까지만 선택
     </p>
+
+    <script>
+        $(function(){
+            const style1 = {color:"red", border:"2px solid red"};
+            const style2 = {color:"blue", border:"2px solid blue"};
+            const style3 = {color:"yellow", border:"2px solid yellow"};
+            const style4 = {backgroundColor:"aqua", color:"red"};
+
+            // siblings()
+            $("h2").siblings().css(style1); // 기준으로 선택한 것은 제외됨
+            
+            // siblings("선택자")
+            $("h2").siblings("p").css(style2);
+
+            // next()
+            $("h2").next().css(style3);
+
+            // nextAll()
+            $("h2").nextAll().css(style4);
+
+            // nextUntil()
+            $("h2").nextUntil("p").css("fontSize", "3em");
+
+            // prev()
+            $("h2").prev().css("backgroundColor", "pink");
+
+            // prevAll()
+            $("h2").prevAll().css(style4);
+
+            // prevUntil()
+            $("h2").prevUntil("p").css("border", "dotted");
+        });
+    </script>
 </body>
 </html>

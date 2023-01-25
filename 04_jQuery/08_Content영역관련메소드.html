@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Content 영역 관련 메소드</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Content 영역(innerHTML, innerText) 관련 메소드</h1>
+
+    <h3>* html(["문구"]) 메소드: innerHTML 속성과 관련된 메소드</h3>
+
+    <p>
+        선택된 요소의 content 영역의 값을 리턴해주거나 또는 변경해주는 메소드 <br>
+        > $("선택자").html(): 선택된 요소의 content 영역의 값을 반환해줌(html 태그까지 포함)
+        > $("선택자").html("문구"): 선택된 요소의 content 영역의 값을 내가 제시한 문구로 변경(html태그가 존재할 경우 태그로써 해석해줌)
+    </p>
+
+    <h1 id="test1">
+        <a>네이버로</a>
+    </h1>
+
+    <h1 id="test2"></h1>
+
+    <script>
+        $(function(){
+            // 순수 자바스크립트 방식
+            // const tmp = document.getElementById("test1").innerHTML;
+
+            // jQuery 방식
+            const tmp = $("#test1").html();
+            console.log(tmp); // tmp == <a>네이버로</a>
+
+            // $("#test2").html("ㅋㅋ");
+            $("#test2").html(tmp);
+            $("#test2").children().attr("href", "http://www.naver.com");
+        });
+    </script>
+</body>
+</html>
