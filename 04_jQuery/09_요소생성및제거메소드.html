@@ -7,6 +7,25 @@
         .added{
             color:palegreen;
         }
+
+        .item{
+            background-color: yellowgreen;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px /* 높이랑 똑같이 하면 정가운데 배치 */;
+            margin: 5px;
+        }
+
+        .item span{
+            font-size: 25px;
+            color: white;
+            font-weight: bolder;
+        }
+
+        .purple{
+            background-color: purple;
+        }
     </style>
 </head>
 <body>
@@ -98,6 +117,49 @@
         
         $("<span class='added'>B</span>").insertAfter("#test4");
 
+    </script>
+
+    <hr>
+    <h3>* 요소 객체 복제 메소드</h3>
+
+    <p>
+        변수 = $("선택자").clone([true|false]): 선택된 요소를 복제해서 반환해주는 메소드 <br>
+        true | false: 복제할 요소에 걸려있는 이벤트까지도 복사할 지에 대한 여부 지정
+    </p>
+
+    <div id="clone-test">
+        <!-- 복제할 요소 -->
+        <div id="item1" class="item">
+            <span>ㅎㅇ</span>
+        </div>
+    </div>
+
+    <button id="clone">복제</button>
+
+    <div id="clone-result"></div>
+
+    <script>
+        $(function(){
+            // 복제할 요소에 hover 이벤트 (마우스 엔터 + 마우스 아웃)
+            $(".item").hover(function(){
+                $(this).addClass("purple");
+            }, function(){
+                $(this).removeClass("purple");
+            });
+
+            // 복제 버튼 클릭 시 #item1 요소 복사해서 또 다른 div에 붙여넣기
+            $("#clone").click(function(){
+                // const copy = $("#item1").clone(); // 기본값 false 이벤트 복사 안됨
+                /*
+                const copy = $("#item1").clone(true);
+                $("#clone-result").append(copy);
+                */
+
+                // 위의 두줄 한줄로
+                $("#clone-result").append($("#item1").clone(true)); // part1
+                $("item1").clone(true).appendTo("#clone-result"); // part2
+            });
+        });
     </script>
 </body>
 </html>
