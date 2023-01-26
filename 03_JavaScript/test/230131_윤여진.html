@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>회원 가입 양식</legend>
+        <form action="test.do">
+            <table>
+                <tr>
+                    <td>아이디</td>
+                    <td><input type="text" name="userId" id="userId"></td>
+                    <td><button type="button" id="checkId" onclick="return validateId();">중복확인</button></td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td><input type="password" name="userPwd" id="userPwd"></td>
+                </tr>
+                <tr>
+                    <td>비밀번호확인</td>
+                    <td>
+                        <input type="password" name="pwdCheck" id="pwdCheck">
+                        <div id="pwdError"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>지역</td>
+                    <td>
+                        <label for="seoul">서울</label>
+                        <input type="radio" name="address" class="address" id="seoul" value="seoul">
+                        <label for="busan">부산</label>
+                        <input type="radio" name="address" class="address" id="busan" value="busan">
+                        <label for="daegu">대구</label>
+                        <input type="radio" name="address" class="address" id="daegu" value="daegu">
+                    </td>
+                </tr>
+            </table>
+            <input type="reset" style="margin-left: 150px;">
+            <input type="submit" value="회원가입" onclick="return validate();">
+        </form>
+    </fieldset>
+
+    <script>
+        const userId = document.getElementById("userId");
+        function validateId() {
+            const regExp = /^[a-z][a-z0-9!@#]{5,11}$/;
+
+            if (regExp.test(userId.value)) {
+                userId.style.backgroundColor = "green";
+                return false;
+            } else {
+                userId.style.backgroundColor = "red";
+                return false;
+            }
+        }
+
+        function validate() {
+            const userPwd = document.getElementById("userPwd").value;
+            const pwdCheck = document.getElementById("pwdCheck").value;
+
+            /*
+            if(userId.style.backgroundColor = "red") {
+                alert("아이디를 확인하세요.");
+                return false;
+            }
+            */
+
+            if (userPwd != pwdCheck || userPwd == "" || pwdCheck == "") {
+                document.getElementById("pwdError").innerHTML = "비밀번호가 일치하지 않습니다.";
+
+                return false;
+            }
+
+            const addCheck = document.getElementsByName("address");
+            if (!(addCheck[0].checked) && !(addCheck[1].checked) && !(addCheck[2].checked)) {
+                alert("지역을 선택해주세요.");
+                return false;
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
