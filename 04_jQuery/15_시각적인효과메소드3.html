@@ -3,6 +3,30 @@
 <head>
     <title>시각적인 효과 메소드3</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        div{
+            background-color: beige;
+            border: 1px solid yellow;
+            width: 300px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+
+        p{
+            border: 1px solid lightgray;
+            width: 300px;
+            height: 100px;
+            border-radius: 10px;
+            margin-top: 5px; /*원래 기본적으로 위아래 margin이 있음*/
+            padding: 10px;
+            box-sizing: border-box;
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <h3>* slideDown()과 slideUp()</h3>
@@ -21,5 +45,30 @@
 
     <div>Q. 연락이 가능한 시간을 알려주세요</div>
     <p>A. ㄴ</p>
+
+    <script>
+        $(function(){
+            $("div").click(function(){
+                // $(this): 클릭 이벤트가 발생한 div 요소
+                // 그 뒤에 요소를 선택해야함
+                // 보여지는 상태면 사라지게 아니면 나타나게
+                const $p = $(this).next(); // next() 클릭이벤트 발생한 그 뒤에 있는 p
+                // 변수명에 $ 붙여주면 jQuery로 만들어진 요소인것을 알려줌
+
+                if($p.css("display") == "none"){ // 안보이는 상태
+
+                    // 하나라도 열면 기존것은 닫히고 
+                    $(this).siblings("p").slideUp();
+                    // 지금 것만 열리게
+                    // 보여지게끔
+                    // $p.css("display", "block");
+                    $p.slideDown();
+                } else { // 보이는 상태
+                    $p.slideUp();
+                }
+            });
+            
+        })
+    </script>
 </body>
 </html>
