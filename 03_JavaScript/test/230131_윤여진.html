@@ -3,6 +3,11 @@
 
 <head>
     <title>Document</title>
+    <style>
+        .address{
+            margin-left: 0px;
+        }
+    </style>
 </head>
 
 <body>
@@ -70,7 +75,6 @@
 
             if (userPwd != pwdCheck || userPwd == "" || pwdCheck == "") {
                 document.getElementById("pwdError").innerHTML = "비밀번호가 일치하지 않습니다.";
-
                 return false;
             }
 
@@ -79,8 +83,6 @@
                 alert("지역을 선택해주세요.");
                 return false;
             }
-
-
         }
     </script>
 </body>

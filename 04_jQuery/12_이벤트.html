@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>이벤트</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <h1>이벤트 핸들러(이벤트 발생 시 실행할 function) 연결 방법</h1>
+
+    <h3>* 방법 1. 이벤트 메소드를 통한 연결</h3>
+    <pre>
+    [표현법]
+    
+    $("선택자").이벤트메소드(function(){
+        선택자에 해당 이벤트가 발생했을 때 실행할 내용;
+    });
+    </pre>
+
+    <h4 id="test1">클릭해보세요</h4>
+
+    <script>
+        $(function(){
+            $("#test1").click(function(){
+                $(this).html("클릭됨");
+            }); 
+ 
+            $("#test1").dblclick(function(){ 
+                $(this).css("color", "red");
+            });
+
+            $("#test1").click(function(){
+                $(this).css("backgroundColor", "pink"); // 기존에 작성 + 나중에 작성 둘 다 실행
+            });
+        });
+    </script>
+
+    <br><br>
+
+    <h3>* 방법 2. on 메소드를 이용한 방법</h3>
+    <pre>
+    [표현법]
+
+    $("선택자").on("이벤트명", function(){
+        해당 선택자에 이벤트 발생 시 실행할 내용;
+    });
+    </pre>
+
+    <h4 id="test2">마우스 클릭 및 올려보세요</h4>
+
+    <script>
+        $(function(){
+            /*
+            $("#test2").on("mouseenter", function(){
+
+            });
+
+            $("#test2").on("mouseout", function(){
+
+            });
+            */
+
+            // on 메소드를 통해 이벤트를 연결 시 한 요소에 다중으로 이벤트를 걸기 가능
+
+            $("#test2").on({"mouseenter":function(){
+                $(this).css("backgroundColor", "yellowgreen").text("마우스 올라감")
+            }, "mouseout":function(){
+                $(this).css("backgroundColor", "yellow").text("마우스 빠져나감")
+            }, "click":function(){
+                $(this).off("mouseenter").off("mouseout").css("backgroundColor", "orange").text("이벤트제거됨");
+            }});
+
+            // 기존에 잘 수행됐던 mouseenter, mouseout 이벤트 핸들러 제거
+            // * off 메소드: 이벤트 핸들러 제거 후 해당 요소 반환
+
+        })
+    </script>
+
+    <br><br>
+
+    <h3>*********** 방법 3. on 메소드 상위요소</h3>
+    <pre>
+    [표현법]
+
+    $("상위요소 선택자").on("이벤트명", "하위요소 선택자(이벤트를 걸고자하는 요소)", function(){})
+    선택한 상위요소 안에 존재하는 하위요소에 해당 이벤트 발생 시 실행할 내용;
+    </pre>
+
+    <div id="wrap">
+        <h4>클릭해보세요</h4>
+        <h5>클릭해보세요</h5>
+    </div>
+
+    
+    <h5>div 바깥쪽 h5</h5>
+</body>
+</html>
