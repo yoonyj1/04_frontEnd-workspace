@@ -92,5 +92,93 @@
 
     
     <h5>div 바깥쪽 h5</h5>
+
+    <script>
+        $(function(){
+            // $("#wrap h4", "#wrap h5")
+            $("#wrap").on("click", "h4, h5", function(){
+                $(this).html("ㅎㅇ");
+            });
+
+            // 해당 문서(document)에 있는 모든 h5 요소에 이벤트를 걸고 싶다면?
+            $(document).on("click", "h5", function(){
+                $(this).css("color", "pink");
+            })
+        })
+    </script>
+
+    <hr>
+    <!-- 무조건 3번으로만 해야하는 경우 -->
+    <h3>* 동적으로 만들어진 요소에도 동일한 이벤트를 적용시키고자 한다면 반드시 방법3으로 해야함</h3>
+    <!-- 동적으로 만들어진 요소: 처음에 문서로딩 시에는 없다가, 이벤트에 의해서 나중에 새로이 만들어진 요소 -->
+
+    <div id="wrap2" style="border: 1px solid red;">
+        <h6>기존에 존재하는 요소</h6>
+
+        <!-- 마지막 h6요소를 클릭 시 여기에다 붙여줌 -->
+    </div>
+
+    <script>
+        $(function(){
+            // 방법1. 이벤트 메소드 => 동적으로 만들어진 요소에는 이벤트 적용 안됨
+            /*
+            $("#wrap2>h6").click(function(){
+                $("#wrap2").append("<h6>클릭으로 인해 동적으로 만들어진 요소</h6>");
+            });
+            */
+
+            // 모든 요소가 그려진 다음에 function이 실행됨
+            // 함수가 실행 될 때 해당 선택자에 만족하는 요소는 기존 거밖에 없음
+            // 새로 만들어진 요소는 이벤트 연결이 안됨
+
+            // 방법2. on 메소드 => 동적으로 만들어진 요소에는 이벤트 적용 안됨
+            /*
+            $("#wrap2>h6").on("click", function(){
+                $("#wrap2").append("<h6>클릭으로 인해 동적으로 만들어진 요소</h6>");
+            });
+            */
+
+            // 방법3. on 상위요소 메소드
+            $("#wrap2").on("click", "h6", function(){
+                $("#wrap2").append("<h6>클릭으로 인해 동적으로 만들어진 요소</h6>");
+            });
+        })
+    </script>
+
+    <hr>
+
+    <h3>* 일회성 이벤트 (one 메소드)</h3>
+
+    <h6 id="test3">딱 한번만 실행됨</h6>
+
+    <script>
+        $(function(){
+            $("#test3").one("click", function(){
+                alert("처음이자 마지막 이벤트 실행");
+            });
+        })
+    </script>
+
+    <hr>
+
+    <h3>* 키보드 관련 이벤트</h3>
+    <p>
+        - keydown | keypress: 키가 눌러질 때 발생하는 이벤트 <br>
+         > keydown: 키보드의 모든 키가 눌러질 때 발생 <br>
+         > keypress: 키보드의 function키, 기능키(ctrl, shift, alt), 한글 제외한 나머지 키가 눌러질 때 발생됨 <br>
+        - keyup: 키가 떼어질 때 발생하는 이벤트
+    </p>
+
+    <input type="text" id="test4">
+
+    <script>
+        $(function(){
+            $("#test4")./*keydown keypress*/keyup(function(){
+                // console.log("눌러졌음");
+                console.log($("#test4").val()); 
+                console.log($("#test4").val().length); 
+            });
+        })
+    </script>
 </body>
 </html>
