@@ -180,5 +180,22 @@
             });
         })
     </script>
+
+    <h3>* 동적으로 글자수 세기</h3>
+
+    150자 내외로 작성하시오 <br>
+    <textarea style="resize: none;" cols="30" rows="10" id="content"></textarea>
+    <br><br>
+    <span id="count">0</span>/150
+
+    <script>
+        $(function(){
+            $("#content").keyup(function(){
+                let length = $(this).val().length;
+
+                $("#count").text(length);
+            })
+        })
+    </script>
 </body>
 </html>
