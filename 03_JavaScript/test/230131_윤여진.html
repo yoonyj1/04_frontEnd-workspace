@@ -43,7 +43,7 @@
                     </td>
                 </tr>
             </table>
-            <input type="reset" style="margin-left: 150px;">
+            <input type="reset" style="margin-left: 150px;" onclick="resetForm();">
             <input type="submit" value="회원가입" onclick="return validate();">
         </form>
     </fieldset>
@@ -73,16 +73,37 @@
             }
             */
 
+            /*
             if (userPwd != pwdCheck || userPwd == "" || pwdCheck == "") {
                 document.getElementById("pwdError").innerHTML = "비밀번호가 일치하지 않습니다.";
                 return false;
             }
+            */
 
             const addCheck = document.getElementsByName("address");
+
+            let count = 0;
+
+            for (let i = 0; i < addCheck.length; i++){
+                if(addCheck[i].checked) {
+                    count++;
+                }
+            }
+
+            if(count == 0) {
+                alert("지역을 선택해주세요.");
+                return false;
+            }
+            /*
             if (!(addCheck[0].checked) && !(addCheck[1].checked) && !(addCheck[2].checked)) {
                 alert("지역을 선택해주세요.");
                 return false;
             }
+            */
+        }
+
+        function resetForm(){
+            userId.style.backgroundColor = "white"; 
         }
     </script>
 </body>
