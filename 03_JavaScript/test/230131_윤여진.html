@@ -7,6 +7,10 @@
         .address{
             margin-left: 0px;
         }
+
+        table td{
+            height: 30px;
+        }
     </style>
 </head>
 
@@ -35,16 +39,20 @@
                     <td>지역</td>
                     <td>
                         <label for="seoul">서울</label>
-                        <input type="radio" name="address" id="seoul" value="seoul">
+                        <input type="radio" name="address" class="address" id="seoul" value="seoul">
                         <label for="busan">부산</label>
-                        <input type="radio" name="address" id="busan" value="busan">
+                        <input type="radio" name="address" class="address" id="busan" value="busan">
                         <label for="daegu">대구</label>
-                        <input type="radio" name="address" id="daegu" value="daegu">
+                        <input type="radio" name="address" class="address" id="daegu" value="daegu">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="reset" style="margin-left: 150px;" onclick="resetForm();">
+                        <input type="submit" value="회원가입" onclick="return validate();">
                     </td>
                 </tr>
             </table>
-            <input type="reset" style="margin-left: 150px;" onclick="resetForm();">
-            <input type="submit" value="회원가입" onclick="return validate();">
         </form>
     </fieldset>
 
@@ -65,21 +73,12 @@
         function validate() {
             const userPwd = document.getElementById("userPwd").value;
             const pwdCheck = document.getElementById("pwdCheck").value;
-
-            /*
-            if(userId.style.backgroundColor = "red") {
-                alert("아이디를 확인하세요.");
-                return false;
-            }
-            */
-
-            /*
+            
             if (userPwd != pwdCheck || userPwd == "" || pwdCheck == "") {
-                document.getElementById("pwdError").innerHTML = "비밀번호가 일치하지 않습니다.";
+                document.getElementById("pwdError").innerHTML = "비밀번호를 확인하세요.";
                 return false;
             }
-            */
-
+            
             const addCheck = document.getElementsByName("address");
 
             let count = 0;
@@ -94,12 +93,6 @@
                 alert("지역을 선택해주세요.");
                 return false;
             }
-            /*
-            if (!(addCheck[0].checked) && !(addCheck[1].checked) && !(addCheck[2].checked)) {
-                alert("지역을 선택해주세요.");
-                return false;
-            }
-            */
         }
 
         function resetForm(){
