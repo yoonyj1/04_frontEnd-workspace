@@ -26,12 +26,12 @@
                 </tr>
                 <tr>
                     <td>비밀번호</td>
-                    <td><input type="password" name="userPwd" id="userPwd"></td>
+                    <td><input type="password" name="userPwd" id="userPwd" required></td>
                 </tr>
                 <tr>
                     <td>비밀번호확인</td>
                     <td>
-                        <input type="password" name="pwdCheck" id="pwdCheck">
+                        <input type="password" name="pwdCheck" id="pwdCheck" required>
                         <div id="pwdError"></div>
                     </td>
                 </tr>
@@ -48,7 +48,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="reset" style="margin-left: 150px;" onclick="userId.style.backgroundColor=''">
+                        <input type="reset" style="margin-left: 150px;" onclick="resetForm();">
                         <input type="submit" value="회원가입" onclick="return validate();">
                     </td>
                 </tr>
@@ -73,12 +73,11 @@
         function validate() {
             const userPwd = document.getElementById("userPwd").value;
             const pwdCheck = document.getElementById("pwdCheck").value;
-            
-            if (userPwd != pwdCheck || userPwd == "" || pwdCheck == "") {
+
+            if(userPwd != pwdCheck){
                 document.getElementById("pwdError").innerHTML = "비밀번호를 확인하세요.";
-                return false;
             }
-            
+
             const addCheck = document.getElementsByName("address");
 
             let count = 0;
@@ -95,6 +94,10 @@
             }
         }
 
+        function resetForm(){
+            userId.style.backgroundColor="";
+            document.getElementById("pwdError").innerHTML = "";
+        }
     </script>
 </body>
 
